@@ -2,9 +2,17 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 
-
-export default function SensorGauges({ label, value, valueMin, valueMax }:
-  {label: string; value: number; valueMin: number; valueMax: number}) {
+export default function SensorGauges({
+  label,
+  value,
+  valueMin,
+  valueMax,
+}: {
+  label: string;
+  value: number;
+  valueMin: number;
+  valueMax: number;
+}) {
   return (
     <Stack direction={{ xs: 'column', md: 'row' }} spacing={{ xs: 1, md: 3 }}>
       <div className="flex flex-col items-center">
@@ -27,7 +35,10 @@ export default function SensorGauges({ label, value, valueMin, valueMax }:
             },
           })}
         />
-        <label id={`sensor-type-${label}`} className="mt-2 text-center text-xs font-semibold">
+        <label
+          id={`sensor-type-${label}`}
+          className="mt-2 text-center text-xs font-semibold"
+        >
           {label}
         </label>
       </div>

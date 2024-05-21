@@ -1,4 +1,4 @@
-import Info from '@/app/ui/dashboard/weather-info';
+import WeatherInfo from '@/app/ui/dashboard/weather-info';
 import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
 import { CropDailyCard } from '@/app/ui/dashboard/crop-daily-card';
@@ -18,11 +18,11 @@ export default async function Page() {
         </div>
 
         <div className="col-span-4 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2">
-          <Info />
+          <WeatherInfo />
         </div>
 
         <div className="col-span-4 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2">
-          <Info />
+          <WeatherInfo />
         </div>
       </div>
     </main>
