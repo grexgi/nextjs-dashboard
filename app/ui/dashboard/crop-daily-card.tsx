@@ -1,6 +1,7 @@
 'use client';
 
 import SensorGauges from '@/app/ui/dashboard/sensor-daily-chart';
+// Import API untuk isi value gaugeChart
 
 export function CropDailyCard() {
   return (
@@ -11,16 +12,16 @@ export function CropDailyCard() {
       </div>
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
-        <SensorGauges />
-        <SensorGauges />
-        <SensorGauges />
-        <SensorGauges />
-        <SensorGauges />
-        <SensorGauges />
-        <SensorGauges />
-        <SensorGauges />
-        <SensorGauges />
-        <SensorGauges />
+        <SensorGauges label='NDVI' value={0.2} valueMin={-1} valueMax={1}/>
+        <SensorGauges label='EC' value={0.2} valueMin={-1} valueMax={1}/>
+        <SensorGauges label='Suhu' value={0.2} valueMin={-1} valueMax={1}/>
+        <SensorGauges label='Kelembapan' value={78} valueMin={0} valueMax={100}/>
+        <SensorGauges label='pH' value={6.2} valueMin={0} valueMax={14}/>
+        <SensorGauges label='Tinggi Tanaman' value={45} valueMin={70} valueMax={1}/>
+        <SensorGauges label='Jumlah Daun' value={55} valueMin={0} valueMax={125}/>
+        <SensorGauges label='Nitrogen (N)' value={120} valueMin={0} valueMax={150}/>
+        <SensorGauges label='Phospat (P)' value={80} valueMin={0} valueMax={150}/>
+        <SensorGauges label='Kalium (K)' value={60} valueMin={0} valueMax={150}/>
       </div>
 
       <a
