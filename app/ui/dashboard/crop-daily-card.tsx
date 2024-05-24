@@ -5,7 +5,7 @@ import SensorGauges from '@/app/ui/dashboard/sensor-daily-chart';
 
 export function CropDailyCard() {
   return (
-    <div className="mb-4 flex h-min w-full flex-col overflow-auto rounded-xl bg-green-50 p-3 shadow-lg">
+    <div className="mb-4 flex h-min w-full flex-col overflow-auto rounded-xl bg-green-50 p-3">
       <div className="flex flex-col pt-8 text-center">
         <h1 className="text-xl font-bold">B1-U1</h1>
         <p className="text-lg font-medium text-green-700">Sehat</p>
