@@ -9,9 +9,10 @@ export default function WeatherInfo() {
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const apiUrl = `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apiKey}&language=id-id`;
+      const apiUrl = `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${apiKey}&language=id-id`;
       const response = await fetch(apiUrl);
       const data = await response.json();
+      console.log(data)
       setWeatherData(data[0]); // Assuming the first element in the response contains the current conditions
     };
 
