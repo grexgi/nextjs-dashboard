@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { PieChart } from '@mui/x-charts/PieChart';
-// import { ResponsiveChartContainer } from '@mui/x-charts/ResponsiveChartContainer';
+import { ResponsiveChartContainer } from '@mui/x-charts/ResponsiveChartContainer';
 
 export default function BasicPie() {
   return (

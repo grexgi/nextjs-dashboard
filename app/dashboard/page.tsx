@@ -1,8 +1,7 @@
 import BasicLineChart from '@/app/ui/dashboard/historical-chart';
+import BasicPie from '../ui/dashboard/pie-chart';
 import WeatherInfo from '@/app/ui/dashboard/weather-info';
 import CropInfo from '@/app/ui/dashboard/crop-info';
-import BasicPie from '../ui/dashboard/pie-chart';
-import { lusitana } from '@/app/ui/fonts';
 import Image from 'next/image';
 
 export default async function Page() {
@@ -20,13 +19,13 @@ export default async function Page() {
               className="hidden md:block"
             />
           </div>
-          <BasicLineChart></BasicLineChart>
+          <BasicLineChart/>
         </div>
 
-        <div className="col-span-4 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2">
+        <div className="col-span-4 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2 mb-10">
           <WeatherInfo />
           <CropInfo />
-          <BasicPie />
+          {/* <BasicPie /> */}
         </div>
       </div>
     </main>
