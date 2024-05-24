@@ -3,22 +3,18 @@ import { CropDailyCard } from '@/app/ui/dashboard/crop-daily-card';
 
 export default async function Page() {
   return (
-    <main>
-      <div className="grid grid-cols-4 gap-3 xl:grid-cols-8">
-        <div className="col-span-4">
-          <CropDailyCard />
-          <CropDailyCard />
-          <CropDailyCard />
-        </div>
-
-        <div className="col-span-4 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2">
-          <WeatherInfo />
-        </div>
-
-        <div className="col-span-4 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2">
-          <WeatherInfo />
-        </div>
-      </div>
-    </main>
+    <main className="flex flex-col-reverse xl:flex-row gap-5"> {/* Main container with flex column on small screens, flex row on larger */}
+  <div className="flex-grow"> {/* Grow to fill available space */}
+    <CropDailyCard />
+    <CropDailyCard />
+    <CropDailyCard />
+  </div>
+    <div className="rounded-xl flex-grow w-full xl:w-1/4 bg-green-50 bg-opacity-70">
+    <WeatherInfo />
+    </div>
+    <div className="rounded-xl flex-grow w-full xl:w-1/4 bg-green-50 bg-opacity-70">
+    <WeatherInfo />
+    </div>
+  </main>
   );
 }
