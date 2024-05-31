@@ -25,14 +25,14 @@ export default function WeatherInfo() {
 
   return (
     <div className="flex flex-row flex-wrap gap-1 p-4">
-      <h1 className="w-full text-2xl font-bold">Cuaca</h1>
-      <p id="date" className="w-full text-lg font-medium">
+      <h1 className="w-full text-lg md:text-2xl font-bold">Cuaca</h1>
+      <p id="date" className="w-full text-xs md:text-lg font-medium">
         {DateFormatter(weatherData.LocalObservationDateTime)}
       </p>
-      <p id="info" className="w-full text-lg font-normal">
+      <p id="info" className="w-full text-xs md:text-lg font-normal">
         {weatherData.WeatherText}
       </p>
-      <p id="temp" className="w-full text-right text-xl font-bold">
+      <p id="temp" className="w-full text-right text-sm md:text-xl font-bold">
         {weatherData.Temperature.Metric.Value}°C
       </p>
     </div>

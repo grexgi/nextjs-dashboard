@@ -7,6 +7,7 @@
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "seed": "node -r dotenv/config ./scripts/seed.js",
+    "SQL-API": "node -r dotenv/config ./scripts/sql_api.js",
     "start": "next start"
   },
   "dependencies": {
@@ -23,6 +24,9 @@
     "bcrypt": "^5.1.1",
     "clsx": "^2.0.0",
     "dayjs": "^1.11.11",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.8",
     "next": "^14.0.2",
     "postcss": "8.4.31",
     "react": "18.2.0",
