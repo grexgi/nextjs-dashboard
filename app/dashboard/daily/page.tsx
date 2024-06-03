@@ -2,7 +2,8 @@ import WeatherInfo from '@/app/ui/dashboard/weather-info';
 import { CropDailyCard } from '@/app/ui/dashboard/crop-daily-card';
 
 async function getData() {
-  const res = await fetch(`https://api.thingspeak.com/channels/2495370/feeds.json?api_key=SH0R26GMJVP5Q3IB&results=1`)
+  const apiKey = 'SH0R26GMJVP5Q3IB'
+  const res = await fetch(`https://api.thingspeak.com/channels/2495370/feeds.json?api_key=${apiKey}&results=1`)
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 

@@ -6,11 +6,6 @@ const port = 5000;
 
 // Database connection details (replace with your actual credentials)
 const pool = mysql.createPool({
-  // host: 'dwh-sales-ops-grexgi-e283.a.aivencloud.com',
-  // user: 'avnadmin',
-  // password: 'AVNS_tSq14P0-VIzRF1dtN7S',
-  // database: 'crophealth'
-
   // local
   host: '127.0.0.1',
   user: 'root',
