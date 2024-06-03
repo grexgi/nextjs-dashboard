@@ -5,9 +5,9 @@ import { PowerIcon } from '@heroicons/react/24/outline';
 
 export default function SideNav() {
   return (
-    <div className="fixed md:flex w-full md:w-64 md:h-full flex-nowrap md:flex-col p-1 md:py-4 md:px-2 bg-green-500 md:bg-transparent bottom-0 z-10">
+    <div className="fixed bottom-0 z-10 w-full flex-nowrap bg-green-500 p-1 md:flex md:h-full md:w-64 md:flex-col md:bg-transparent md:px-2 md:py-4">
       <Link
-        className="mb-2 items-end justify-start rounded-md bg-green-600 p-4 hidden md:block"
+        className="mb-2 hidden items-end justify-start rounded-md bg-green-600 p-4 md:block"
         href="/"
       >
         <div className="w-32 text-white md:w-40">

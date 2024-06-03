@@ -1,54 +1,86 @@
 'use client';
 
 import SensorGauges from '@/app/ui/dashboard/sensor-daily-chart';
-// Import API untuk isi value gaugeChart
 
-export function CropDailyCard({cropCode, cropClass}:{cropCode: string; cropClass:string}) {
+export function CropDailyCard({
+  cropCode,
+  cropClass,
+  NDVI,
+  EC,
+  temperature,
+  humidity,
+  pH,
+  cropTall,
+  leafCount,
+  n,
+  p,
+  k,
+}: {
+  cropCode: string;
+  cropClass: string;
+  NDVI: number;
+  EC: number;
+  temperature: number;
+  humidity: number;
+  pH: number;
+  cropTall: number;
+  leafCount: number;
+  n: number;
+  p: number;
+  k: number;
+}) {
   return (
     <div className="mb-4 flex h-min w-full flex-col overflow-auto rounded-xl bg-green-50 p-3">
       <div className="flex flex-col pt-8 text-center">
-        <h1 className="text-base md:text-xl font-bold">{cropCode}</h1>
-        <p className="text-sm md:text-lg font-medium text-green-700">{cropClass}</p>
+        <h1 className="text-base font-bold md:text-xl">{cropCode}</h1>
+        <p className="text-sm font-medium text-green-700 md:text-lg">
+          {cropClass}
+        </p>
       </div>
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
-        <SensorGauges label="NDVI" value={0.2} valueMin={-1} valueMax={1} />
-        <SensorGauges label="EC" value={0.2} valueMin={-1} valueMax={1} />
-        <SensorGauges label="Suhu" value={18} valueMin={0} valueMax={40} />
+        <SensorGauges label="NDVI" value={NDVI} valueMin={-1} valueMax={1} />
+        <SensorGauges label="EC" value={EC} valueMin={0} valueMax={50} />
+        <SensorGauges
+          label="Suhu"
+          value={temperature}
+          valueMin={0}
+          valueMax={40}
+        />
         <SensorGauges
           label="Kelembapan"
-          value={78}
+          value={humidity}
           valueMin={0}
           valueMax={100}
         />
-        <SensorGauges label="pH" value={6.2} valueMin={0} valueMax={14} />
+        <SensorGauges label="pH" value={pH} valueMin={0} valueMax={14} />
         <SensorGauges
           label="Tinggi Tanaman"
-          value={45}
-          valueMin={70}
-          valueMax={1}
+          value={cropTall}
+          valueMin={0}
+          valueMax={100}
         />
         <SensorGauges
           label="Jumlah Daun"
-          value={55}
+          value={leafCount}
           valueMin={0}
           valueMax={125}
         />
         <SensorGauges
           label="Nitrogen (N)"
-          value={120}
+          value={n}
           valueMin={0}
           valueMax={150}
         />
         <SensorGauges
-          label="Phospat (P)"
-          value={80}
+          label="Fosfor (P)"
+          value={p}
           valueMin={0}
           valueMax={150}
         />
         <SensorGauges
           label="Kalium (K)"
-          value={60}
+          value={k}
           valueMin={0}
           valueMax={150}
         />
@@ -56,7 +88,7 @@ export function CropDailyCard({cropCode, cropClass}:{cropCode: string; cropClass
 
       <a
         href="#"
-        className="me-8 mt-5 text-sm md:text-base self-end font-semibold text-blue-700 underline"
+        className="me-8 mt-5 self-end text-sm font-semibold text-blue-700 underline md:text-base"
       >
         Detail
       </a>

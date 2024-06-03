@@ -11,12 +11,13 @@ export default function Page() {
         <AcmeLogo />
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-green-50 opacity-70 px-6 py-10 md:w-2/5 md:px-20">
+        <div className="flex flex-col justify-center gap-6 rounded-lg bg-green-50 px-6 py-10 opacity-70 md:w-2/5 md:px-20">
           <p
             className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
           >
-            <strong>Welcome to Crop Health Monitoring System. </strong> 
-            A system to monitor your crop from home, developed by Telkom University student.
+            <strong>Welcome to Crop Health Monitoring System. </strong>A system
+            to monitor your crop from home, developed by Telkom University
+            student.
           </p>
           <Link
             href="/dashboard"

@@ -19,10 +19,10 @@ export default async function Page() {
               className="hidden md:block"
             />
           </div>
-          <BasicLineChart/>
+          <BasicLineChart />
         </div>
 
-        <div className="col-span-4 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2 mb-10">
+        <div className="col-span-4 mb-10 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2">
           <WeatherInfo />
           <CropInfo />
           {/* <BasicPie /> */}

@@ -1,11 +1,11 @@
 export default function CropInfo() {
   return (
     <div className="p-4">
-      <h1 className="text-lg md:text-2xl font-bold leading-none tracking-tight">
+      <h1 className="text-lg font-bold leading-none tracking-tight md:text-2xl">
         Tanaman
       </h1>
-      <p className="text-xs md:font-lg">Cabai</p>
-      <p className="text-xs md:font-lg">Rabu, 24 April 2024</p>
+      <p className="text-xs md:text-lg">Cabai</p>
+      <p className="text-xs md:text-lg">Rabu, 24 April 2024</p>
     </div>
   );
 }

@@ -27,9 +27,7 @@ const timeData = [
 const y1 = [-0.1, -0.26, 0.32, 0.46, 0.4, 0.59, 0.6, 0.8, 0.84];
 
 const config = {
-  series: [
-    { type: 'line', data: y1 },
-  ] as LineSeriesType[],
+  series: [{ type: 'line', data: y1 }] as LineSeriesType[],
   height: 300,
   xAxis: [
     {
@@ -37,10 +35,10 @@ const config = {
       scaleType: 'time',
       valueFormatter: (date: Date) =>
         date.toLocaleDateString('fr-FR', {
-              month: '2-digit',
-              day: '2-digit',
-              year: '2-digit',
-            })
+          month: '2-digit',
+          day: '2-digit',
+          year: '2-digit',
+        }),
     } as const,
   ],
 };
@@ -49,22 +47,22 @@ export default function ReferenceLine() {
   return (
     <div className="flex flex-col rounded-xl bg-green-50 bg-opacity-70 p-4 xl:flex-row">
       <HistoricalGraphFilter />
-  
-    <Box sx={{ width: '100%', maxWidth: 600 }}>
-      <ResponsiveChartContainer {...config}>
-        <LinePlot />
-        <ChartsReferenceLine
-          x={new Date(2024, 4, 5)}
-          lineStyle={{ strokeDasharray: '10 5' }}
-          labelStyle={{ fontSize: '10' }}
-          label={`Predict`}
-          labelAlign="start"
-        />
-        <ChartsReferenceLine y={0} label="min-NDVI" labelAlign="end" />
-        <ChartsXAxis label='Tanggal'/>
-        <ChartsYAxis label='NDVI'/>
-      </ResponsiveChartContainer>
-    </Box>
+
+      <Box sx={{ width: '100%', maxWidth: 600 }}>
+        <ResponsiveChartContainer {...config}>
+          <LinePlot />
+          <ChartsReferenceLine
+            x={new Date(2024, 4, 5)}
+            lineStyle={{ strokeDasharray: '10 5' }}
+            labelStyle={{ fontSize: '10' }}
+            label={`Predict`}
+            labelAlign="start"
+          />
+          <ChartsReferenceLine y={0} label="min-NDVI" labelAlign="end" />
+          <ChartsXAxis label="Tanggal" />
+          <ChartsYAxis label="NDVI" />
+        </ResponsiveChartContainer>
+      </Box>
     </div>
   );
 }
