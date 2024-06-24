@@ -19,6 +19,7 @@ const cropData = [
   { polybag:'Time 6', channelID: '2580659', apiKey: 'IUM51GU125UVW9B4'},
   { polybag:'Time 7', channelID: '2580664', apiKey: 'TTX87BGPJK2KTFCT'},
   { polybag:'Time 8', channelID: '2580665', apiKey: '8HWN2H29SBPJ0JAD'},
+  // { polybag:'Ardi 1', channelID: '2495370', apiKey: 'SH0R26GMJVP5Q3IB'},
 ];
 
 async function getData(crop:any) {
@@ -43,24 +44,27 @@ export default async function Page() {
   return (
     <main className="mb-5 flex flex-wrap gap-5 flex-col lg:flex-row">
       <div className='flex-grow'>
-      {allCropData.map((cropData, index) => (
-        
-        <CropDailyCard
-          key={index}
-          cropCode={cropData.channel.name} // Modify crop code based on your logic
-          cropClass="Sehat" // Assuming "Sehat" is a default class
-          NDVI={0.7} // Assuming a constant NDVI for now
-          EC={cropData.feeds[0].field3}
-          temperature={roundToDecimals(cropData.feeds[0].field2)}
-          humidity={roundToDecimals(cropData.feeds[0].field1)}
-          pH={roundToDecimals(cropData.feeds[0].field4)}
-          cropTall={20}
-          leafCount={24}
-          n={cropData.feeds[0].field5}
-          p={cropData.feeds[0].field6}
-          k={cropData.feeds[0].field7}
-        />
-      ))}
+      {allCropData.map((cropData, index) => {
+        const isCrop1To8 = index < 6; // Adjust condition based on actual crop division
+
+        return (
+          <CropDailyCard
+            key={index}
+            cropCode={cropData.channel.name} 
+            cropClass={cropData.feeds[0].created_at}
+            NDVI={0}
+            EC={cropData.feeds[0].field3}
+            temperature={roundToDecimals(cropData.feeds[0].field2)}
+            humidity={roundToDecimals(cropData.feeds[0].field1)}
+            pH={roundToDecimals(cropData.feeds[0].field4)}
+            cropTall={0}
+            leafCount={0}
+            n={isCrop1To8 ? cropData.feeds[0].field5 : cropData.feeds[0].field6} // Nitrogen for crops 1-8
+            p={isCrop1To8 ? cropData.feeds[0].field6 : cropData.feeds[0].field7} // Phosphorus for crops 1-8 and Nitrogen for crops 9-16
+            k={isCrop1To8 ? cropData.feeds[0].field7 : cropData.feeds[0].field8} // Potassium for crops 1-8 and Phosphorus for crops 9-16
+          />
+        );
+      })}
       </div>
       {/* Weather cards can remain similar */}
       <div className="w-full flex-grow rounded-xl bg-green-50 bg-opacity-70 xl:w-1/4">
