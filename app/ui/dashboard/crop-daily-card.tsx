@@ -40,7 +40,7 @@ export function CropDailyCard({
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
         <SensorGauges label="NDVI" value={NDVI} valueMin={-1} valueMax={1} />
-        <SensorGauges label="EC" value={EC} valueMin={0} valueMax={50} />
+        <SensorGauges label="EC" value={EC} valueMin={0} valueMax={1500} />
         <SensorGauges
           label="Suhu"
           value={temperature}
@@ -70,19 +70,19 @@ export function CropDailyCard({
           label="Nitrogen (N)"
           value={n}
           valueMin={0}
-          valueMax={150}
+          valueMax={1000}
         />
         <SensorGauges
           label="Fosfor (P)"
           value={p}
           valueMin={0}
-          valueMax={150}
+          valueMax={1000}
         />
         <SensorGauges
           label="Kalium (K)"
           value={k}
           valueMin={0}
-          valueMax={150}
+          valueMax={1000}
         />
       </div>
 
