@@ -12,6 +12,9 @@ export default function Page() {
     <div className="flex flex-col gap-3">
       <CounterButton count={count} onClick={handler} />
       <CounterButton count={count} onClick={handler} />
+
+      <div className="font-bold text-xs text-red-500 md:text-lg">*Belum*</div>
+
     </div>
   );
 }
