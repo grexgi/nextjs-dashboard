@@ -1,7 +1,7 @@
 import WeatherInfo from '@/app/ui/dashboard/weather-info';
 import { CropDailyCard } from '@/app/ui/dashboard/crop-daily-card';
 
-const cropData = [
+const sensors = [
   { polybag:'Auto 1', channelID: '2573088', apiKey: '2EUPVXHC5QO8ZPOY'},
   { polybag:'Auto 2', channelID: '2573089', apiKey: 'CYTZ5PANCCUVVCMT'},
   { polybag:'Auto 3', channelID: '2573090', apiKey: 'WJF8BQGGMR6JA9AE'},
@@ -23,9 +23,10 @@ const cropData = [
 ];
 
 async function getData(crop:any) {
-  const apiKey = crop.apiKey;
-  const channelID = crop.channelID;
-  const res = await fetch(`https://api.thingspeak.com/channels/${channelID}/feeds.json?api_key=${apiKey}&results=1`)
+  const CHANNEL_ID = crop.channelID;
+  const API_KEY = crop.apiKey;
+  const TIMEZONE = 'Asia/Jakarta';
+  const res = await fetch(`https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds/last.json?api_key=${API_KEY}&timezone=${TIMEZONE}`)
   
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -40,7 +41,7 @@ function roundToDecimals(value: number, decimals = 2): number {
 }
 
 export default async function Page() {
-  const allCropData = await Promise.all(cropData.map(getData)); // Fetch data concurrently
+  const allCropData = await Promise.all(sensors.map(getData)); // Fetch data concurrently
   return (
     <main className="mb-5 flex flex-wrap gap-5 flex-col lg:flex-row">
       <div className='flex-grow'>
@@ -50,18 +51,19 @@ export default async function Page() {
         return (
           <CropDailyCard
             key={index}
-            cropCode={cropData.channel.name} 
-            cropClass={cropData.feeds[0].created_at}
+            // cropCode={sensors[index].polybag} 
+            cropCode={cropData.entry_id} 
+            cropClass={cropData.created_at}
             NDVI={0}
-            EC={cropData.feeds[0].field3}
-            temperature={roundToDecimals(cropData.feeds[0].field2)}
-            humidity={roundToDecimals(cropData.feeds[0].field1)}
-            pH={roundToDecimals(cropData.feeds[0].field4)}
+            EC={cropData.field3}
+            temperature={roundToDecimals(cropData.field2)}
+            humidity={roundToDecimals(cropData.field1)}
+            pH={roundToDecimals(cropData.field4)}
             cropTall={0}
             leafCount={0}
-            n={isCrop1To8 ? cropData.feeds[0].field5 : cropData.feeds[0].field6} // Nitrogen for crops 1-8
-            p={isCrop1To8 ? cropData.feeds[0].field6 : cropData.feeds[0].field7} // Phosphorus for crops 1-8 and Nitrogen for crops 9-16
-            k={isCrop1To8 ? cropData.feeds[0].field7 : cropData.feeds[0].field8} // Potassium for crops 1-8 and Phosphorus for crops 9-16
+            n={isCrop1To8 ? cropData.field5 : cropData.field6} // Nitrogen for crops 1-8
+            p={isCrop1To8 ? cropData.field6 : cropData.field7} // Phosphorus for crops 1-8 and Nitrogen for crops 9-16
+            k={isCrop1To8 ? cropData.field7 : cropData.field8} // Potassium for crops 1-8 and Phosphorus for crops 9-16
           />
         );
       })}
