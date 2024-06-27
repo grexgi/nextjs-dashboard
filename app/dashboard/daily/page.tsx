@@ -51,8 +51,8 @@ export default async function Page() {
         return (
           <CropDailyCard
             key={index}
-            // cropCode={sensors[index].polybag} 
-            cropCode={cropData.entry_id} 
+            cropCode={sensors[index].polybag} 
+            // cropCode={cropData.entry_id} 
             cropClass={cropData.created_at}
             NDVI={0}
             EC={cropData.field3}
