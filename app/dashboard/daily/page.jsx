@@ -136,7 +136,7 @@ export default function Page() {
     return <div>Error fetching data: {error}</div>;
   }
   return (
-    <main className="mb-5 flex flex-col flex-wrap gap-5 lg:flex-row md flex-col-reverse">
+    <main className="mb-5 flex flex-col-reverse flex-wrap gap-5 lg:flex-row">
       <div className="flex-grow">
         {sensorData.map((cropData, index) => {
           const isCrop1To8 = index < 6; // Adjust condition based on actual crop division
@@ -167,7 +167,7 @@ export default function Page() {
           *Parameter NDVI, Tinggi Tanaman, dan Jumlah daun masih belum berjalan*
         </div>
       </div>
-      <div className="w-full flex-grow rounded-xl bg-green-50 bg-opacity-70 xl:w-1/4">
+      <div className="w-full rounded-xl bg-green-50 bg-opacity-70 xl:w-1/4">
         <WeatherInfo />
       </div>
     </main>
