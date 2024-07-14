@@ -26,8 +26,10 @@ export default async function Page() {
           <WeatherInfo />
           <CropInfo />
           {/* <BasicPie /> */}
-          <div className='p-4'>
-          <p className="font-bold text-xs text-red-500 md:text-lg">*Data historis belum berjalan*</p>
+          <div className="p-4">
+            <p className="text-xs font-bold text-red-500 md:text-lg">
+              *Data historis belum berjalan*
+            </p>
           </div>
         </div>
       </div>

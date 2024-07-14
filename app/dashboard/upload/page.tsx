@@ -13,8 +13,7 @@ export default function Page() {
       <CounterButton count={count} onClick={handler} />
       <CounterButton count={count} onClick={handler} />
 
-      <div className="font-bold text-xs text-red-500 md:text-lg">*Belum*</div>
-
+      <div className="text-xs font-bold text-red-500 md:text-lg">*Belum*</div>
     </div>
   );
 }
