@@ -27,9 +27,9 @@ export default async function Page() {
           <CropInfo />
           {/* <BasicPie /> */}
           <div className="p-4">
-            <p className="text-xs font-bold text-red-500 md:text-lg">
+            {/* <p className="text-xs font-bold text-red-500 md:text-lg">
               *Data historis belum berjalan*
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

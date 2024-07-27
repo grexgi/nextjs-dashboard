@@ -86,12 +86,9 @@ export function CropDailyCard({
         />
       </div>
 
-      <a
-        href="#"
-        className="me-8 mt-5 self-end text-sm font-semibold text-blue-700 underline md:text-base"
-      >
+      {/* <a href="#" className="me-8 mt-5 self-end text-sm font-semibold text-blue-700 underline md:text-base">
         Detail
-      </a>
+      </a> */}
     </div>
   );
 }

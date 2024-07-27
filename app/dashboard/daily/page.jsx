@@ -162,11 +162,11 @@ export default function Page() {
         })}
       </div>
       {/* Weather cards can remain similar */}
-      <div className="w-full flex-grow rounded-xl bg-green-50 bg-opacity-70 xl:w-1/4">
+      {/* <div className="w-full flex-grow rounded-xl bg-green-50 bg-opacity-70 xl:w-1/4">
         <div className="flex flex-row flex-wrap gap-1 p-4 font-bold text-red-500">
           *Parameter NDVI, Tinggi Tanaman, dan Jumlah daun masih belum berjalan*
         </div>
-      </div>
+      </div> */}
       <div className="w-full rounded-xl bg-green-50 bg-opacity-70 xl:w-1/4">
         <WeatherInfo />
       </div>
