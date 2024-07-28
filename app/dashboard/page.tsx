@@ -7,10 +7,10 @@ import Image from 'next/image';
 export default async function Page() {
   return (
     <main>
-      <div className="grid grid-cols-4 gap-3 xl:grid-cols-6">
-        <div className="col-span-4">
+      <div className="flex flex-col-reverse gap-5 xl:flex-row">
+        <div className="flex-col mb-10">
           {/* Image */}
-          <div className="mb-3 rounded-xl bg-green-50 bg-opacity-70">
+          <div className="rounded-xl bg-green-50 bg-opacity-70">
             <Image
               src="/ndvi.png"
               width={1000}
@@ -22,7 +22,7 @@ export default async function Page() {
           <BasicLineChart />
         </div>
 
-        <div className="col-span-4 mb-10 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2">
+        <div className="col-span-4 rounded-xl bg-green-50 bg-opacity-70 xl:col-span-2">
           <WeatherInfo />
           <CropInfo />
           {/* <BasicPie /> */}
