@@ -10,7 +10,7 @@ export default async function Page() {
       <div className="flex flex-col-reverse gap-5 xl:flex-row">
         <div className="flex-col mb-10">
           {/* Image */}
-          <div className="rounded-xl bg-green-50 bg-opacity-70">
+          <div className="rounded-xl xl:mb-5 bg-green-50 bg-opacity-70">
             <Image
               src="/ndvi.png"
               width={1000}
