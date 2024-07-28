@@ -51,7 +51,7 @@ export default function HistoricalGraphFilter() {
 
       <Box sx={{ minWidth: 180 }}>
         <FormControl fullWidth>
-          <InputLabel id="select-sensor-label">Sensor</InputLabel>
+          <InputLabel id="select-sensor-label">Parameter</InputLabel>
           <Select
             labelId="select-sensor-label"
             id="select-sensor"
@@ -70,7 +70,7 @@ export default function HistoricalGraphFilter() {
             <MenuItem value={'pH'}>pH</MenuItem>
             <MenuItem value={'Nitrogen (n)'}>Nitrogen (n)</MenuItem>
             <MenuItem value={'Fosfor (p)'}>Fosfor (p)</MenuItem>
-            <MenuItem value={'Pottasium (k)'}>Pottasium (k)</MenuItem>
+            <MenuItem value={'Kalium (k)'}>Pottasium (k)</MenuItem>
           </Select>
         </FormControl>
       </Box>
