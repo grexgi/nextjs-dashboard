@@ -37,7 +37,8 @@
     "scripts/seed.js",
     "app/ui/dashboard/weather-info.jsx",
     "app/ui/dashboard/crop-daily-card.tsx",
-    "app/dashboard/daily/page.jsx"
+    "app/dashboard/page.jsx",
+    "app/dashboard/details/[cropCode]/page.jsx"
   ],
   "exclude": [
     "node_modules"

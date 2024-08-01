@@ -25,7 +25,7 @@ export default function WeatherInfo() {
 
   return (
     <div className="flex flex-row flex-wrap gap-1 p-4">
-      <h1 className="w-full text-lg font-bold md:text-2xl">Cuaca</h1>
+      <h1 className="w-full text-lg font-bold md:text-xl">Cuaca</h1>
       <p id="date" className="w-full text-xs font-medium md:text-lg">
         {DateFormatter(weatherData.LocalObservationDateTime)}
       </p>

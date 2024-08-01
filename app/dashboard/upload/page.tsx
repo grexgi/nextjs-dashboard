@@ -1,36 +1,16 @@
-// Test and Train coding with react
-'use client';
+import { TextField } from '@mui/material';
+import { Input, Button, DatePicker } from '@nextui-org/react';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Page() {
-  const [count, setCount] = useState(0);
-  function handler() {
-    setCount(count + 1);
-  }
-
   return (
-    <div className="flex flex-col gap-3">
-      <CounterButton count={count} onClick={handler} />
-      <CounterButton count={count} onClick={handler} />
-
-      <div className="text-xs font-bold text-red-500 md:text-lg">*Belum*</div>
+    <div className=' flex flex-col gap-5 mx-36 my-52'>
+      {/* <Input type="text" size='lg' className='' /> */}
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <DatePicker label="Tanggal" className='border border-black rounded-md' />
+      <Button className=' bg-green-800 font-bold text-slate-100 rounded-md'>Unggah</Button>
     </div>
-  );
-}
 
-function CounterButton({
-  count,
-  onClick,
-}: {
-  count: number;
-  onClick: () => void;
-}) {
-  return (
-    <button
-      className="rounded-md border-black bg-slate-500 p-3 hover:opacity-90"
-      onClick={onClick}
-    >
-      count {count}
-    </button>
   );
 }

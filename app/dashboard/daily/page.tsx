@@ -1,5 +1,5 @@
 import BasicLineChart from '@/app/ui/dashboard/historical-chart';
-import BasicPie from '../ui/dashboard/pie-chart';
+import BasicPie from '../../ui/dashboard/pie-chart';
 import WeatherInfo from '@/app/ui/dashboard/weather-info';
 import CropInfo from '@/app/ui/dashboard/crop-info';
 import Image from 'next/image';

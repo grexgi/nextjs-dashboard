@@ -1,6 +1,7 @@
 'use client';
 
 import SensorGauges from '@/app/ui/dashboard/sensor-daily-chart';
+import Link from 'next/link';
 
 export function CropDailyCard({
   cropCode,
@@ -86,9 +87,12 @@ export function CropDailyCard({
         />
       </div>
 
-      {/* <a href="#" className="me-8 mt-5 self-end text-sm font-semibold text-blue-700 underline md:text-base">
+      <Link href={{
+        pathname: 'dashboard/details/' + cropCode
+      }}
+        className="me-12 mt-5 self-end text-sm font-semibold px-3 py-1 border border-blue-700 bg-blue-700 rounded-md text-slate-50 hover:bg-transparent hover:text-blue-700 md:text-base">
         Detail
-      </a> */}
+      </Link>
     </div>
   );
 }
