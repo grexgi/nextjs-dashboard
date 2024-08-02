@@ -1,12 +1,7 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import { Providers } from './providers';
-import { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Crop Health',
-  description: 'Welcome to Next.js',
-}
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function RootLayout({
   children,
@@ -16,6 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
+        <SpeedInsights />
         <Providers>{children}</Providers>
       </body>
     </html>
