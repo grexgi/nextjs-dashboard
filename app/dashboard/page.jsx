@@ -146,7 +146,7 @@ export default function Page() {
               key={index}
               cropCode={sensors[index].polybag}
               // cropCode={cropData.entry_id}
-              cropClass={"Sehat"}
+              cropClass={'Sehat'}
               NDVI={0}
               EC={cropData.field3}
               temperature={roundToDecimals(cropData.field2)}

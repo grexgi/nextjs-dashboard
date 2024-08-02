@@ -8,9 +8,9 @@ export default async function Page() {
   return (
     <main>
       <div className="flex flex-col-reverse gap-5 xl:flex-row">
-        <div className="flex-col mb-10">
+        <div className="mb-10 flex-col">
           {/* Image */}
-          <div className="rounded-xl xl:mb-5 bg-green-50 bg-opacity-70">
+          <div className="rounded-xl bg-green-50 bg-opacity-70 xl:mb-5">
             <Image
               src="/ndvi.png"
               width={1000}

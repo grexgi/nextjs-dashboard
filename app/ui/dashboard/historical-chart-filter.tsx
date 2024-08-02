@@ -31,20 +31,20 @@ export default function HistoricalGraphFilter() {
             label="Code"
             onChange={codeChange}
           >
-            <MenuItem value={"B2-N2P1(3)"}>B2-N2P1(3)</MenuItem>
-            <MenuItem value={"B2-N2P3(2)"}>B2-N2P3(2)</MenuItem>
-            <MenuItem value={"B2-N2P2(3)"}>B2-N2P2(3)</MenuItem>
-            <MenuItem value={"B3-N2P1(3)"}>B3-N2P1(3)</MenuItem>
-            <MenuItem value={"B3-N2P3(1)"}>B3-N2P3(1)</MenuItem>
-            <MenuItem value={"B3-N2P2(4)"}>B3-N2P2(4)</MenuItem>
-            <MenuItem value={"B4-N3P2(4)"}>B4-N3P2(4)</MenuItem>
-            <MenuItem value={"B4-N3P3(4)"}>B4-N3P3(4)</MenuItem>
-            <MenuItem value={"B6-N2P1(6)"}>B6-N2P1(6)</MenuItem>
-            <MenuItem value={"B8-N2P2(1)"}>B8-N2P2(1)</MenuItem>
-            <MenuItem value={"B8-N2P3(1)"}>B8-N2P3(1)</MenuItem>
-            <MenuItem value={"B9-N3P3(3)"}>B9-N3P3(3)</MenuItem>
-            <MenuItem value={"B10-N2P3(5)"}>B10-N2P3(5)</MenuItem>
-            <MenuItem value={"B11-N3P1(2)"}>B11-N3P1(2)</MenuItem>
+            <MenuItem value={'B2-N2P1(3)'}>B2-N2P1(3)</MenuItem>
+            <MenuItem value={'B2-N2P3(2)'}>B2-N2P3(2)</MenuItem>
+            <MenuItem value={'B2-N2P2(3)'}>B2-N2P2(3)</MenuItem>
+            <MenuItem value={'B3-N2P1(3)'}>B3-N2P1(3)</MenuItem>
+            <MenuItem value={'B3-N2P3(1)'}>B3-N2P3(1)</MenuItem>
+            <MenuItem value={'B3-N2P2(4)'}>B3-N2P2(4)</MenuItem>
+            <MenuItem value={'B4-N3P2(4)'}>B4-N3P2(4)</MenuItem>
+            <MenuItem value={'B4-N3P3(4)'}>B4-N3P3(4)</MenuItem>
+            <MenuItem value={'B6-N2P1(6)'}>B6-N2P1(6)</MenuItem>
+            <MenuItem value={'B8-N2P2(1)'}>B8-N2P2(1)</MenuItem>
+            <MenuItem value={'B8-N2P3(1)'}>B8-N2P3(1)</MenuItem>
+            <MenuItem value={'B9-N3P3(3)'}>B9-N3P3(3)</MenuItem>
+            <MenuItem value={'B10-N2P3(5)'}>B10-N2P3(5)</MenuItem>
+            <MenuItem value={'B11-N3P1(2)'}>B11-N3P1(2)</MenuItem>
           </Select>
         </FormControl>
       </Box>

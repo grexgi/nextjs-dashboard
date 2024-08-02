@@ -87,10 +87,12 @@ export function CropDailyCard({
         />
       </div>
 
-      <Link href={{
-        pathname: 'dashboard/details/' + cropCode
-      }}
-        className="me-12 mt-5 self-end text-sm font-semibold px-3 py-1 border border-blue-700 bg-blue-700 rounded-md text-slate-50 hover:bg-transparent hover:text-blue-700 md:text-base">
+      <Link
+        href={{
+          pathname: 'dashboard/details/' + cropCode,
+        }}
+        className="me-12 mt-5 self-end rounded-md border border-blue-700 bg-blue-700 px-3 py-1 text-sm font-semibold text-slate-50 hover:bg-transparent hover:text-blue-700 md:text-base"
+      >
         Detail
       </Link>
     </div>
