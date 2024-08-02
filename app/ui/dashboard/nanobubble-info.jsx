@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function NanobubbleInfo() {
   const [envData, setEnvData] = useState(null);
-  const pollingInterval = 60000/5; // 1 minute in milliseconds
+  const pollingInterval = 60000; // 1 minute in milliseconds
 
   useEffect(() => {
     const fetchEnv = async () => {

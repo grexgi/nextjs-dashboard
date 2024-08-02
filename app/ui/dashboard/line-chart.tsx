@@ -4,26 +4,36 @@ import React, { useState, useEffect } from 'react';
 import ReactECharts from 'echarts-for-react';
 
 interface LineChartProps {
-  data: {
-    feeds: any[],
-    created_at: string;
-    field1: number;
-  }[];
+  title: string,
+  data: any;
 }
 
 
-const LineChart: React.FC<LineChartProps> = ({ data }) => {
+const LineChart: React.FC<LineChartProps> = ({ title, data }) => {
   const [option, setOption] = React.useState({});
-  // console.log("Data ", data);
   useEffect(() => {
-    const feeds = data.map((item: any) => item.field1);
     const dates = data.map((item: any) => DateFormatter(item.created_at));
+    let feeds;
+    switch (title) {
+      case 'Kelembapan':
+        feeds = data.map((item: any) => item.field1);
+        break;
+      case 'Suhu':
+        feeds = data.map((item: any) => item.field2);
+        break;
+      case 'Konduktivitas':
+        feeds = data.map((item: any) => item.field3);
+        break;
+      case 'pH':
+        feeds = data.map((item: any) => item.field4);
+        break;
+    }
 
     const lineChartOption = {
       title: {
         left: 'center',
         top: 30,
-        text: 'Humidity'
+        text: title
       },
       tooltip: {
         trigger: 'axis',
@@ -62,7 +72,7 @@ const LineChart: React.FC<LineChartProps> = ({ data }) => {
     };
 
     setOption(lineChartOption);
-  }, [data]);
+  }, [title, data]);
 
   return <ReactECharts option={option} />;
 }

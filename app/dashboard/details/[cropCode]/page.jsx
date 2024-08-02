@@ -121,7 +121,19 @@ export default async function Page({ params }) {
           </section>
 
           <section className='mt-5 md:w-1/2'>
-            <LineChart data={sensorData} />
+            <LineChart title='Kelembapan' data={sensorData} />
+          </section>
+
+          <section className='mt-5 md:w-1/2'>
+            <LineChart title='Suhu' data={sensorData} />
+          </section>
+
+          <section className='mt-5 md:w-1/2'>
+            <LineChart title='Konduktivitas' data={sensorData} />
+          </section>
+
+          <section className='mt-5 md:w-1/2'>
+            <LineChart title='pH' data={sensorData} />
           </section>
           
         </div>
@@ -130,9 +142,9 @@ export default async function Page({ params }) {
 
       {/* environment sensor */}
       <div className="flex flex-row gap-4 md:w-1/4 md:flex-col">
-        <div className="rounded-xl bg-green-50 bg-opacity-70">
+        {/* <div className="rounded-xl bg-green-50 bg-opacity-70">
           <WeatherInfo />
-        </div>
+        </div> */}
         <div className="rounded-xl bg-green-50 bg-opacity-70">
           <EnvironmentInfo />
         </div>
@@ -159,6 +171,5 @@ const getSensorData = async(foundSensor, results = 3) => {
     throw new Error('Failed to fetch data')
   }
   const sensorData = await res.json();
-  
   return sensorData.feeds;
 }

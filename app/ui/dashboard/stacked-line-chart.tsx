@@ -16,10 +16,24 @@ const StackedLineChart: React.FC<LineChartProps> = ({ data }) => {
   const [option, setOption] = useState({});
   // console.log("Data ", data);
   useEffect(() => {
-    const nitrogen = data.map((item: any) => item.field5);
-    const phosphor = data.map((item: any) => item.field6);
-    const potassium = data.map((item: any) => item.field7);
-    const dates = data.map((item: any) => DateFormatter(item.created_at));
+    let nitrogen = [];
+    let phosphor = [];
+    let potassium = [];
+    let dates: string[] = [];
+
+    const checkTDS = data.map((item: any) => item.field8);
+    if (checkTDS[0] == undefined) {
+      nitrogen = data.map((item: any) => item.field5);
+      phosphor = data.map((item: any) => item.field6);
+      potassium = data.map((item: any) => item.field7);
+      dates = data.map((item: any) => DateFormatter(item.created_at));
+    } else {
+      nitrogen = data.map((item: any) => item.field6);
+      phosphor = data.map((item: any) => item.field7);
+      potassium = data.map((item: any) => item.field8);
+      dates = data.map((item: any) => DateFormatter(item.created_at));
+
+    }
 
     const lineChartOption = {
       title: {
