@@ -1,6 +1,12 @@
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
 import { Providers } from './providers';
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Crop Health',
+  description: 'Welcome to Next.js',
+}
 
 export default function RootLayout({
   children,
