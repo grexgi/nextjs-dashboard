@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function NanobubbleInfo() {
   const [envData, setEnvData] = useState(null);
-  const pollingInterval = 60000; // 1 minute in milliseconds
+  const pollingInterval = 60000 * 0; // 1 minute in milliseconds
 
   useEffect(() => {
     const fetchEnv = async () => {
@@ -28,7 +28,7 @@ export default function NanobubbleInfo() {
     <div className="flex flex-row flex-wrap gap-1 p-4">
       <h1 className="w-full text-lg font-bold md:text-xl">Nanobubble</h1>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        {envData.created_at}
+        {/* {envData.created_at} */}
         DO : {roundToDecimals(envData.field1)}
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
@@ -41,10 +41,10 @@ export default function NanobubbleInfo() {
         Suhu : {roundToDecimals(envData.field4)}°C
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        TDS : {roundToDecimals(envData.field5)}/ppm
+        TDS : {roundToDecimals(envData.field5)} ppm
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        Sal : {roundToDecimals(envData.field6)}/ppm
+        Sal : {roundToDecimals(envData.field6)} ppm
       </p>
     </div>
   );

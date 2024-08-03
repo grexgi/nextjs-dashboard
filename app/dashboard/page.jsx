@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import WeatherInfo from '@/app/ui/dashboard/weather-info';
 import { CropDailyCard } from '@/app/ui/dashboard/crop-daily-card';
+import EnvironmentInfo from '../ui/dashboard/environment-info';
+import NanobubbleInfo from '../ui/dashboard/nanobubble-info';
 
 const sensors = [
   {
@@ -51,16 +53,10 @@ const sensors = [
     sensor: 'Time 1',
   },
   {
-    polybag: 'B9-N3P3(3)',
-    channelID: '2580653',
-    apiKey: 'WYPUBPC0DLJWPNKC',
-    sensor: 'Time 2',
-  },
-  {
-    polybag: 'B11-N3P1(2)',
-    channelID: '2580655',
-    apiKey: 'LQEI4ENFE68DWD75',
-    sensor: 'Time 3',
+    polybag: 'B4-N3P3(4)',
+    channelID: '2580664',
+    apiKey: 'TTX87BGPJK2KTFCT',
+    sensor: 'Time 7',
   },
   {
     polybag: 'B6-N2P1(6)',
@@ -75,22 +71,28 @@ const sensors = [
     sensor: 'Time 5',
   },
   {
+    polybag: 'B8-N2P3(1)',
+    channelID: '2580665',
+    apiKey: '8HWN2H29SBPJ0JAD',
+    sensor: 'Time 8',
+  },
+  {
+    polybag: 'B9-N3P3(3)',
+    channelID: '2580653',
+    apiKey: 'WYPUBPC0DLJWPNKC',
+    sensor: 'Time 2',
+  },
+  {
     polybag: 'B10-N2P3(5)',
     channelID: '2580659',
     apiKey: 'IUM51GU125UVW9B4',
     sensor: 'Time 6',
   },
   {
-    polybag: 'B4-N3P3(4)',
-    channelID: '2580664',
-    apiKey: 'TTX87BGPJK2KTFCT',
-    sensor: 'Time 7',
-  },
-  {
-    polybag: 'B8-N2P3(1)',
-    channelID: '2580665',
-    apiKey: '8HWN2H29SBPJ0JAD',
-    sensor: 'Time 8',
+    polybag: 'B11-N3P1(2)',
+    channelID: '2580655',
+    apiKey: 'LQEI4ENFE68DWD75',
+    sensor: 'Time 3',
   },
   // { polybag:'Ardi 1', channelID: '2495370', apiKey: 'SH0R26GMJVP5Q3IB'},
 ];
@@ -167,8 +169,16 @@ export default function Page() {
           *Parameter NDVI, Tinggi Tanaman, dan Jumlah daun masih belum berjalan*
         </div>
       </div> */}
-      <div className="w-full rounded-xl bg-green-50 bg-opacity-70 xl:w-1/4">
-        <WeatherInfo />
+      <div className="flex flex-row gap-4 md:w-1/4 md:flex-col">
+        <div className="rounded-xl bg-green-50 bg-opacity-70">
+          <WeatherInfo />
+        </div>
+        <div className="rounded-xl bg-green-50 bg-opacity-70">
+          <EnvironmentInfo />
+        </div>
+        <div className="rounded-xl bg-green-50 bg-opacity-70">
+          <NanobubbleInfo />
+        </div>
       </div>
     </main>
   );
