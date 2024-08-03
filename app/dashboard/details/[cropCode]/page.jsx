@@ -11,14 +11,14 @@ export const metadata = {
 
 export default async function Page({ params }) {
   return (
-    <div className="flex flex-col mb-10 gap-4 md:flex-row">
+    <div className="flex flex-col-reverse mb-10 gap-4 md:flex-row">
       {/* detail */}
       <div className="grow flex-col rounded-xl bg-green-50 px-2 py-5">
         <h1 className=" text-xl md:text-2xl font-bold text-slate-900 px-10">
           Detail Tanaman {params.cropCode}
         </h1>
 
-        <div className=' flex flex-col-reverse md:flex-row flex-wrap'>
+        <div className=' flex flex-col md:flex-row flex-wrap'>
           <section className='mt-5 md:w-1/2'>
             <StackedLineChart cropCode={params.cropCode} />
           </section>
