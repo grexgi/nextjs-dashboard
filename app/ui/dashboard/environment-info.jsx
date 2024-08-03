@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function EnvironmentInfo() {
   const [envData, setEnvData] = useState(null);
-  const pollingInterval = 60000;
+  const pollingInterval = 60000 * 0;
 
   useEffect(() => {
     const fetchEnv = async () => {
@@ -27,14 +27,14 @@ export default function EnvironmentInfo() {
     <div className="flex flex-row flex-wrap gap-1 p-4">
       <h1 className="w-full text-lg font-bold md:text-xl">Lingkungan</h1>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        {(envData.created_at)}
+        {/* {(envData.created_at)} */}
         Suhu : {roundToDecimals(envData.field1)}°C
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
         Kelembapan : {roundToDecimals(envData.field2)}%
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        TDS : {roundToDecimals(envData.field3)}/ppm
+        TDS : {roundToDecimals(envData.field3)} ppm
       </p>
     </div>
   );

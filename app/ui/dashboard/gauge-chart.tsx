@@ -80,7 +80,7 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, index, minValue, maxValu
     setOption(gaugeChartOption);
   }, [title, index, minValue, maxValue, minSafe, maxSafe]);
 
-  return <div className=' bg-neutral-400'><ReactECharts option={option} /> </div>;
+  return <ReactECharts option={option} />;
 }
 
 export default GaugeChart;
