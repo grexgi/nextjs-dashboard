@@ -20,10 +20,10 @@ export default async function Page({ params }) {
         </h1>
 
         {/* Sensor Map */}
-        <div className=' overflow-clip max-h-16 md:max-h-52'>
-          <Image className='my-4'
+        <div className='my-4 overflow-y-clip overflow-x-scroll max-h-52'>
+          <Image className='min-w-fit'
             width={1000}
-            height={50}
+            height={700}
             src={`/sensor-map/${params.cropCode}.png`}
             alt='Sensor Map' />
         </div>
