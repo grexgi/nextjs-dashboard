@@ -138,7 +138,7 @@ export default function Page() {
     return <div>Error fetching data: {error}</div>;
   }
   return (
-    <main className="mb-5 flex flex-row gap-5 md:flex-row">
+    <main className="mb-5 flex flex-col-reverse gap-5 md:flex-row">
       {/* Gauge chart */}
       <div className="flex flex-col md:w-3/4">
         {sensorData.map((cropData, index) => {
@@ -166,7 +166,7 @@ export default function Page() {
       </div>
 
       {/* info */}
-      <div className="flex flex-row gap-4 md:flex-col md:w-1/4">
+      <div className="flex flex-row overflow-auto gap-4 md:flex-col md:w-1/4">
         <div className="rounded-xl bg-green-50 bg-opacity-70">
           <WeatherInfo />
         </div>

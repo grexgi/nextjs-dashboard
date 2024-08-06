@@ -4,6 +4,7 @@ import NanobubbleInfo from '@/app/ui/dashboard/nanobubble-info';
 import LineChart from '@/app/ui/dashboard/line-chart';
 import StackedLineChart from '@/app/ui/dashboard/stacked-line-chart';
 import GaugeChart from '@/app/ui/dashboard/gauge-chart';
+import Image from "next/image"
 
 export const metadata = {
   title: 'Detail',
@@ -18,7 +19,33 @@ export default async function Page({ params }) {
           Detail Tanaman {params.cropCode}
         </h1>
 
-        <div className=' flex flex-col md:flex-row flex-wrap'>
+        {/* Sensor Map */}
+        <div className=' overflow-clip max-h-16 md:max-h-52'>
+          <Image className='my-4'
+            width={1000}
+            height={50}
+            src={`/sensor-map/${params.cropCode}.png`}
+            alt='Sensor Map' />
+        </div>
+
+        {/* Crop Info */}
+        <div className=' grid grid-cols-3 my-5 mx-3 gap-2'>
+          <p className='font-semibold p-2'>Nutrisi</p>
+          <p className='p-2'>:</p>
+          <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Larutan Hara</p>
+          <p className='font-semibold p-2'>Pembentuk Tanah</p>
+          <p className='p-2'>:</p>
+          <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Pupuk Kandang</p>
+          <p className='font-semibold p-2'>Tingkat Kesehatan</p>
+          <p className='p-2'>:</p>
+          <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Sehat</p>
+          <p className='font-semibold p-2'>Penyakit</p>
+          <p className='p-2'>:</p>
+          <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Tidak Ada</p>
+        </div>
+
+        {/* Line-Chart */}
+        <div className=' flex flex-col md:flex-row flex-wrap overflow-auto md:overflow-visible'>
           <section className='mt-5 md:w-1/2'>
             <StackedLineChart cropCode={params.cropCode} />
           </section>
@@ -48,7 +75,7 @@ export default async function Page({ params }) {
       </div>
 
       {/* environment sensor */}
-      <div className="flex flex-row gap-4 md:max-w-xs md:flex-col">
+      <div className="flex flex-row gap-4 overflow-auto md:flex-col">
         <div className="rounded-xl bg-green-50 bg-opacity-70">
           <WeatherInfo />
         </div>

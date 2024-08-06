@@ -51,7 +51,7 @@ const StackedLineChart: React.FC<LineChartProps> = ({ cropCode }) => {
     const lineChartOption = {
       title: {
         left: 'center',
-        top: 30,
+        top: 40,
         text: 'NPK'
       },
       tooltip: {

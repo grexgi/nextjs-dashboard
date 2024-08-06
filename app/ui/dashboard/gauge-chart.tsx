@@ -85,7 +85,7 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, index, minValue, maxValu
     setOption(gaugeChartOption);
   }, [title, index, minValue, maxValue, minSafe, maxSafe]);
 
-  return <div className='h-28 w-28'><ReactECharts className='h-28' option={option} /> </div>;
+  return <div className='h-28 w-28 overflow-clip'><ReactECharts option={option} /> </div>;
 }
 
 export default GaugeChart;

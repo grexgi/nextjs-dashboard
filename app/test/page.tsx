@@ -4,9 +4,10 @@ export default async function Polybags() {
     const { data, error } = await supabase.from("soil_sensor_monitoring")
         .select()
         .eq('polybag', 'B2-N2P1(3)')
-        .gte('created_at', '2024-08-04')
-        .lt('created_at', '2024-08-05')
-        .order('entry', { ascending: false });
+        // .gte('created_at', '2024-08-07')
+        .lte('created_at', '2024-08-07')
+        .order('entry', { ascending: false })
+        .limit(288);
 
     if (error) {
         console.error(error);
