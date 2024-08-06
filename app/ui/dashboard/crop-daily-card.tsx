@@ -2,6 +2,7 @@
 
 import SensorGauges from '@/app/ui/dashboard/sensor-daily-chart';
 import Link from 'next/link';
+import GaugeChart from './gauge-chart';
 
 export function CropDailyCard({
   cropCode,
@@ -31,7 +32,7 @@ export function CropDailyCard({
   k: number;
 }) {
   return (
-    <div className="mb-4 flex h-min w-full flex-col overflow-auto rounded-xl bg-green-50 p-3">
+    <div className="mb-4 flex h-min w-full flex-col overflow-x-clip rounded-xl bg-green-50 p-3">
       <div className="flex flex-col pt-8 text-center">
         <h1 className="text-base font-bold md:text-xl">{cropCode}</h1>
         <p className="text-sm font-medium text-green-700 md:text-lg">
@@ -39,59 +40,24 @@ export function CropDailyCard({
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
-        <SensorGauges label="NDVI" value={NDVI} valueMin={-1} valueMax={1} />
-        <SensorGauges label="EC" value={EC} valueMin={0} valueMax={1500} />
-        <SensorGauges
-          label="Suhu"
-          value={temperature}
-          valueMin={0}
-          valueMax={40}
-        />
-        <SensorGauges
-          label="Kelembapan"
-          value={humidity}
-          valueMin={0}
-          valueMax={100}
-        />
-        <SensorGauges label="pH" value={pH} valueMin={0} valueMax={14} />
-        <SensorGauges
-          label="Tinggi Tanaman"
-          value={cropTall}
-          valueMin={0}
-          valueMax={100}
-        />
-        <SensorGauges
-          label="Jumlah Daun"
-          value={leafCount}
-          valueMin={0}
-          valueMax={125}
-        />
-        <SensorGauges
-          label="Nitrogen (N)"
-          value={n}
-          valueMin={0}
-          valueMax={1000}
-        />
-        <SensorGauges
-          label="Fosfor (P)"
-          value={p}
-          valueMin={0}
-          valueMax={1000}
-        />
-        <SensorGauges
-          label="Kalium (K)"
-          value={k}
-          valueMin={0}
-          valueMax={1000}
-        />
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
+        <GaugeChart title='NDVI' index={NDVI} minValue={-1} maxValue={1} minSafe={0.66} maxSafe={1} />
+        <GaugeChart title='EC' index={EC} minValue={0} maxValue={1500} minSafe={0.66} maxSafe={0.8} />
+        <GaugeChart title='Suhu' index={temperature} minValue={0} maxValue={40} minSafe={0.2} maxSafe={0.4} />
+        <GaugeChart title='Kelembapan' index={humidity} minValue={0} maxValue={100} minSafe={0.2} maxSafe={0.6} />
+        <GaugeChart title='pH' index={pH} minValue={0} maxValue={14} minSafe={0.4} maxSafe={0.7} />
+        <GaugeChart title='Tinggi' index={cropTall} minValue={0} maxValue={150} minSafe={0.4} maxSafe={1} />
+        <GaugeChart title='Daun' index={leafCount} minValue={0} maxValue={300} minSafe={0.4} maxSafe={1} />
+        <GaugeChart title='Nitrogen' index={n} minValue={0} maxValue={1000} minSafe={0.4} maxSafe={0.7} />
+        <GaugeChart title='Fosfor' index={p} minValue={0} maxValue={1000} minSafe={0.4} maxSafe={0.7} />
+        <GaugeChart title='Kalium' index={k} minValue={0} maxValue={1000} minSafe={0.4} maxSafe={0.7} />
       </div>
 
       <Link
         href={{
           pathname: 'dashboard/details/' + cropCode,
         }}
-        className="me-12 mt-5 self-end rounded-md border border-blue-700 bg-blue-700 px-3 py-1 text-sm font-semibold text-slate-50 hover:bg-transparent hover:text-blue-700 md:text-base"
+        className="me-12 md:me-20 mt-6 self-end rounded-md border border-blue-700 bg-blue-700 px-3 py-1 text-sm font-semibold text-slate-50 hover:bg-transparent hover:text-blue-700 md:text-base"
       >
         Detail
       </Link>

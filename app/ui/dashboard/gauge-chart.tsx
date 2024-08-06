@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ReactECharts from 'echarts-for-react';
+import { color, distance } from 'framer-motion';
 
 interface GaugeChartProps {
   title: string,
@@ -22,7 +23,7 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, index, minValue, maxValu
           type: 'gauge',
           startAngle: 180,
           endAngle: 0,
-          center: ['50%', '75%'],
+          center: ['50%', '30%'],
           radius: '100%',
           min: minValue,
           max: maxValue,
@@ -49,7 +50,11 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, index, minValue, maxValu
             }
           },
           axisTick: {
-            show: false,
+            show: true,
+            distance: 1,
+            lineStyle: {
+              color: 'auto'
+            }
           },
           axisLabel: {
             show: false
@@ -80,7 +85,7 @@ const GaugeChart: React.FC<GaugeChartProps> = ({ title, index, minValue, maxValu
     setOption(gaugeChartOption);
   }, [title, index, minValue, maxValue, minSafe, maxSafe]);
 
-  return <ReactECharts option={option} />;
+  return <div className='h-28 w-28'><ReactECharts className='h-28' option={option} /> </div>;
 }
 
 export default GaugeChart;

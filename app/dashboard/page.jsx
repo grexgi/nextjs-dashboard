@@ -138,8 +138,9 @@ export default function Page() {
     return <div>Error fetching data: {error}</div>;
   }
   return (
-    <main className="mb-5 flex flex-col-reverse flex-wrap gap-5 lg:flex-row">
-      <div className="flex-grow">
+    <main className="mb-5 flex flex-row gap-5 md:flex-row">
+      {/* Gauge chart */}
+      <div className="flex flex-col md:w-3/4">
         {sensorData.map((cropData, index) => {
           const isCrop1To8 = index < 6; // Adjust condition based on actual crop division
 
@@ -163,13 +164,9 @@ export default function Page() {
           );
         })}
       </div>
-      {/* Weather cards can remain similar */}
-      {/* <div className="w-full flex-grow rounded-xl bg-green-50 bg-opacity-70 xl:w-1/4">
-        <div className="flex flex-row flex-wrap gap-1 p-4 font-bold text-red-500">
-          *Parameter NDVI, Tinggi Tanaman, dan Jumlah daun masih belum berjalan*
-        </div>
-      </div> */}
-      <div className="flex flex-row gap-4 md:w-1/4 md:flex-col">
+
+      {/* info */}
+      <div className="flex flex-row gap-4 md:flex-col md:w-1/4">
         <div className="rounded-xl bg-green-50 bg-opacity-70">
           <WeatherInfo />
         </div>
