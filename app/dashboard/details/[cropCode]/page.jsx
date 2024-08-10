@@ -12,7 +12,7 @@ export const metadata = {
 
 export default async function Page({ params }) {
   return (
-    <div className="flex flex-col mb-10 gap-4 md:flex-row">
+    <div className="flex flex-col mb-10 gap-4 md:flex-col-reverse lg:flex-row">
       {/* detail */}
       <div className="grow flex-col rounded-xl bg-green-50 px-2 py-5">
         <h1 className=" text-xl md:text-2xl font-bold text-slate-900 px-10">
@@ -75,7 +75,7 @@ export default async function Page({ params }) {
       </div>
 
       {/* environment sensor */}
-      <div className="flex flex-row gap-4 overflow-auto md:flex-col">
+      <div className="flex flex-row gap-4 overflow-auto lg:flex-col">
         <div className="rounded-xl bg-green-50 bg-opacity-70">
           <WeatherInfo />
         </div>

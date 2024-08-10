@@ -43,7 +43,7 @@ export function CropDailyCard({
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
         <GaugeChart title='NDVI' index={NDVI} minValue={-1} maxValue={1} minSafe={0.66} maxSafe={1} />
         <GaugeChart title='EC' index={EC} minValue={0} maxValue={1500} minSafe={0.66} maxSafe={0.8} />
-        <GaugeChart title='Suhu' index={temperature} minValue={0} maxValue={40} minSafe={0.2} maxSafe={0.4} />
+        <GaugeChart title='Suhu' index={temperature} minValue={0} maxValue={40} minSafe={0.2} maxSafe={0.8} />
         <GaugeChart title='Kelembapan' index={humidity} minValue={0} maxValue={100} minSafe={0.3} maxSafe={0.7} />
         <GaugeChart title='pH' index={pH} minValue={0} maxValue={14} minSafe={0.4} maxSafe={0.7} />
         <GaugeChart title='Tinggi' index={cropTall} minValue={0} maxValue={150} minSafe={0.4} maxSafe={1} />
@@ -57,7 +57,7 @@ export function CropDailyCard({
         href={{
           pathname: 'dashboard/details/' + cropCode,
         }}
-        className="mt-6 me-8 md:me-20 self-end rounded-md border border-blue-700 bg-blue-700 px-3 py-1 text-sm font-semibold text-slate-50 hover:bg-transparent hover:text-blue-700 md:text-base"
+        className="mt-6 me-5 md:me-20 self-end rounded-md border border-blue-700 bg-blue-700 px-3 py-1 text-sm font-semibold text-slate-50 hover:bg-transparent hover:text-blue-700 md:text-base"
       >
         Detail
       </Link>
