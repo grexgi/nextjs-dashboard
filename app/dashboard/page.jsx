@@ -140,7 +140,7 @@ export default function Page() {
   return (
     <main className="mb-5 flex flex-col-reverse gap-5 lg:flex-row">
       {/* Gauge chart */}
-      <div className="flex flex-col md:w-3/4">
+      <div className="flex flex-col w-full">
         {sensorData.map((cropData, index) => {
           const isCrop1To8 = index < 6; // Adjust condition based on actual crop division
 

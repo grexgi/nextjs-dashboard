@@ -8,7 +8,7 @@ import { PhotoIcon } from '@heroicons/react/24/outline';
 
 export default function Page() {
   return (
-    <div className='justify-items-center md:my-52 md:mx-48'>
+    <div className='justify-items- md:p-32 lg:my-52 lg:mx-48'>
       <form action={''} method='POST' className="flex flex-col gap-5">
         <Input type="file" label="File" variant='bordered'
           startContent=

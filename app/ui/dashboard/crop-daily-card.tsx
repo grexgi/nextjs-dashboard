@@ -32,7 +32,7 @@ export function CropDailyCard({
   k: number;
 }) {
   return (
-    <div className="mb-4 flex h-min w-full flex-col overflow-x-clip rounded-xl bg-green-50 p-3">
+    <div className="mb-4 flex flex-grow h-min flex-col overflow-x-clip rounded-xl bg-green-50 p-3">
       <div className="flex flex-col pt-8 text-center">
         <h1 className="text-base font-bold md:text-xl">{cropCode}</h1>
         <p className="text-sm font-medium text-green-700 md:text-lg">
