@@ -15,7 +15,7 @@ const StackedLineChart: React.FC<LineChartProps> = ({ cropCode }) => {
   const fetchData = useCallback(async () => {
     try {
       const foundSensor = findSensorByCropCode(cropCode)
-      const response = await fetch(`https://api.thingspeak.com/channels/${foundSensor?.channelID}/feeds.json?api_key=${foundSensor?.apiKey}&timezone=Asia/Jakarta&results=${1440 / 5}`);
+      const response = await fetch(`https://api.thingspeak.com/channels/${foundSensor?.channelID}/feeds.json?api_key=${foundSensor?.apiKey}&timezone=Asia/Jakarta&results=${(1440 / 5) * 7}`);
       const fetchedData = await response.json();
       setData(fetchedData.feeds); // Extract the feeds array
     } catch (error) {
