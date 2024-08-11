@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { DatePicker } from '@nextui-org/date-picker';
 import { Input } from '@nextui-org/input';
@@ -17,18 +17,20 @@ export default function Page() {
     kodePolybag: '',
     tanggal: null,
   });
-  const [error, setError] = useState<string>('');
-  const [prediction, setPrediction] = useState<string>('');
-  const [showError, setShowError] = useState<boolean>(false);
-  const [showPrediction, setShowPrediction] = useState<boolean>(false);
+  const [error, setError] = useState('');
+  const [prediction, setPrediction] = useState('');
+  const [showError, setShowError] = useState(false);
+  const [showPrediction, setShowPrediction] = useState(false);
 
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const data = new FormData();
       Object.keys(formData).forEach((key) => {
-        data.set(key, formData[key]);
+        if (formData[key] !== null) {
+          data.set(key, formData[key]);
+        }
       });
 
       let url = '';
@@ -53,7 +55,7 @@ export default function Page() {
           setShowError(false);
         }, 5000); // hide error after 5 seconds
       }
-    } catch (e: any) {
+    } catch (e) {
       setError(e.message);
       setShowError(true);
       setTimeout(() => {
@@ -62,7 +64,7 @@ export default function Page() {
     }
   };
 
-  const handleInputChange = (key: string, value: any) => {
+  const handleInputChange = (key, value) => {
     setFormData((prevFormData) => ({ ...prevFormData, [key]: value }));
   };
 
@@ -70,8 +72,7 @@ export default function Page() {
     <div className='justify-items-center md:px-64 '>
       <form onSubmit={onSubmit} className="flex flex-col gap-5">
         <Input type="file" label="File" variant='bordered'
-          startContent=
-          {<PhotoIcon className='h-5' />}
+          startContent={<PhotoIcon className='h-5' />}
           className='rounded-xl '
           onChange={(e) => handleInputChange('file', e.target.files?.[0])} />
 
