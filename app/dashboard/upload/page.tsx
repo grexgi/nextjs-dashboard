@@ -73,7 +73,7 @@ export default function Page() {
           startContent=
           {<PhotoIcon className='h-5' />}
           className='rounded-xl '
-          onChange={(e) => handleInputChange('file', e.target.files[0])} />
+          onChange={(e) => handleInputChange('file', e.target.files?.[0])} />
 
         <Select label='Prediksi' placeholder='Pilih jenis prediksi' variant='bordered' labelPlacement='outside' value={formData.selectedOption} onChange={(e) => handleInputChange('selectedOption', e.target.value)}>
           <SelectItem key='disease'>Penyakit Tanaman</SelectItem>
