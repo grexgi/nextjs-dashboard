@@ -9,6 +9,7 @@ import { getLocalTimeZone, parseDate, today } from "@internationalized/date";
 
 import { useState } from 'react';
 import axios from 'axios';
+import supabase from "@/utils/supabase";
 
 export default function Page() {
   const [formData, setFormData] = useState({
@@ -21,7 +22,7 @@ export default function Page() {
   const [prediction, setPrediction] = useState('');
   const [showError, setShowError] = useState(false);
   const [showPrediction, setShowPrediction] = useState(false);
-
+  
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -42,8 +43,9 @@ export default function Page() {
 
       const res = await axios.post(url, data);
 
-      if (res.status === 200) {
+      if (res.status === 200) {        
         setPrediction(res.data.class_label);
+        insertToDatabase(res.data.class_label);
         setShowPrediction(true);
         setTimeout(() => {
           setShowPrediction(false);
@@ -67,9 +69,46 @@ export default function Page() {
   const handleInputChange = (key, value) => {
     setFormData((prevFormData) => ({ ...prevFormData, [key]: value }));
   };
+  
+  async function insertToDatabase(label) {
+    try {
+      const tanggal = formData.tanggal;
+      const year = tanggal.year;
+      const month = tanggal.month < 10 ? `0${tanggal.month}` : tanggal.month;
+      const day = tanggal.day < 10 ? `0${tanggal.day}` : tanggal.day;
+
+      const formattedDate = `${year}-${month}-${day}`;
+      let table = '';
+
+      if (formData.selectedOption == 'disease') {
+        table = 'disease_monitor'
+      } else if (formData.selectedOption == 'ndvi') {
+        table = 'ndvi_monitor'
+      }
+      const { data, error } = await supabase
+        .from(table)
+        .insert([
+          {
+            captured_at: formattedDate, // format as YYYY-MM-DD
+            label: label,
+            polybag: formData.kodePolybag
+          },
+        ]);
+
+      if (error) {
+        console.error(error);
+        throw error;
+      }
+
+    } catch (error) {
+      setError(error.message);
+      setShowError(true);
+      console.error(error);
+    }
+  }
 
   return (
-    <div className='justify-items-center md:px-64 '>
+    <div className='justify-items-center lg:px-64'>
       <form onSubmit={onSubmit} className="flex flex-col gap-5">
         <Input type="file" label="File" variant='bordered'
           startContent={<PhotoIcon className='h-5' />}
@@ -88,6 +127,7 @@ export default function Page() {
         <DatePicker label="Tanggal" variant='bordered' labelPlacement='outside' className='rounded-xl'
           maxValue={today(getLocalTimeZone())}
           value={formData.tanggal} onChange={(date) => handleInputChange('tanggal', date)} />
+        
         <Button type='submit' variant='solid' className="rounded-xl bg-green-800 font-bold text-slate-100">
           Unggah
         </Button>
