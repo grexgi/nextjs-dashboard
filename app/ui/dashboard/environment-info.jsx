@@ -29,11 +29,7 @@ export default function EnvironmentInfo() {
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
         Kelembapan : {roundToDecimals(envData.field2)}%
-      </p>
-      <p id="info" className="w-full text-xs font-normal md:text-lg">
-        TDS : {roundToDecimals(envData.field3)}/ppm
-      </p>
-      
+      </p>      
     </div>
   );
 }

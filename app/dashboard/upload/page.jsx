@@ -10,6 +10,7 @@ import { getLocalTimeZone, parseDate, today } from "@internationalized/date";
 import { useState } from 'react';
 import axios from 'axios';
 import supabase from "@/utils/supabase";
+import Image from 'next/image';
 
 export default function Page() {
   const [formData, setFormData] = useState({
@@ -22,6 +23,7 @@ export default function Page() {
   const [prediction, setPrediction] = useState('');
   const [showError, setShowError] = useState(false);
   const [showPrediction, setShowPrediction] = useState(false);
+  const [imagePreview, setImagePreview] = useState(null);
   
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -68,6 +70,9 @@ export default function Page() {
 
   const handleInputChange = (key, value) => {
     setFormData((prevFormData) => ({ ...prevFormData, [key]: value }));
+    if (key === 'file') {
+      setImagePreview(URL.createObjectURL(value));
+    }
   };
   
   async function insertToDatabase(label) {
@@ -110,6 +115,14 @@ export default function Page() {
   return (
     <div className='justify-items-center lg:px-64'>
       <form onSubmit={onSubmit} className="flex flex-col gap-5">
+        <div className='max-h-64 overflow-auto'>
+          {imagePreview && (
+            <Image
+              height={500}
+              width={1000}
+              src={imagePreview} alt="Image Preview" className="w-full object-cover rounded-xl" />
+          )}
+        </div>
         <Input type="file" label="File" variant='bordered'
           startContent={<PhotoIcon className='h-5' />}
           className='rounded-xl '
