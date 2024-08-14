@@ -20,15 +20,17 @@ export default async function Page({ params }) {
         </h1>
 
         {/* Sensor Map */}
-        <h1 className="text-lg md:text-xl font-bold text-slate-900 px-10">
-          Peta Tanaman
-        </h1>
-        <div className='my-4 overflow-y-clip overflow-x-scroll max-h-52'>
-          <Image className='min-w-fit'
-            width={1000}
-            height={700}
-            src={`/sensor-map/${params.cropCode}.png`}
-            alt='Sensor Map' />
+        <div className='my-4'>
+          <h1 className="text-lg md:text-xl font-bold text-slate-900 px-10">
+            Peta Tanaman
+          </h1>
+          <div className='overflow-y-clip overflow-x-scroll max-h-64'>
+            <Image className='min-w-fit'
+              width={1000}
+              height={700}
+              src={`/sensor-map/${params.cropCode}.png`}
+              alt='Sensor Map' />
+          </div>
         </div>
 
         {/* Crop Info */}
