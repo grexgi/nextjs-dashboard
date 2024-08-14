@@ -15,11 +15,14 @@ export default async function Page({ params }) {
     <div className="flex flex-col mb-10 gap-4 md:flex-col-reverse lg:flex-row">
       {/* detail */}
       <div className="grow flex-col rounded-xl bg-green-50 px-2 py-5">
-        <h1 className=" text-xl md:text-2xl font-bold text-slate-900 px-10">
+        <h1 className="text-xl md:text-2xl font-bold text-slate-900 px-10">
           Detail Tanaman {params.cropCode}
         </h1>
 
         {/* Sensor Map */}
+        <h1 className="text-lg md:text-xl font-bold text-slate-900 px-10">
+          Peta Tanaman
+        </h1>
         <div className='my-4 overflow-y-clip overflow-x-scroll max-h-52'>
           <Image className='min-w-fit'
             width={1000}
