@@ -135,6 +135,8 @@ export default function Page() {
 
         <Select label='Kode Polybag' placeholder='Pilih tanaman' variant='bordered' labelPlacement='outside' value={formData.kodePolybag} onChange={(e) => handleInputChange('kodePolybag', e.target.value)}>
           <SelectItem key='B2-N2P1(3)'>B2-N2P1(3)</SelectItem>
+          <SelectItem key='B8-N2P3(1)'>B8-N2P3(1)</SelectItem>
+          <SelectItem key='B8-N2P2(1)'>B8-N2P2(1)</SelectItem>
         </Select>
 
         <DatePicker label="Tanggal" variant='bordered' labelPlacement='outside' className='rounded-xl'
