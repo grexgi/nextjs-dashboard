@@ -15,7 +15,7 @@ import Image from 'next/image';
 export default function Page() {
   const [formData, setFormData] = useState({
     file: null,
-    selectedOption: 'disease',
+    selectedOption: '',
     kodePolybag: '',
     tanggal: null,
   });
@@ -96,7 +96,7 @@ export default function Page() {
           {
             captured_at: formattedDate, // format as YYYY-MM-DD
             label: label,
-            polybag: formData.kodePolybag
+            id_polybag: formData.kodePolybag
           },
         ]);
 
@@ -123,23 +123,23 @@ export default function Page() {
               src={imagePreview} alt="Image Preview" className="w-full object-cover rounded-xl" />
           )}
         </div>
-        <Input type="file" label="File" variant='bordered'
+        <Input type="file" label="File" variant='bordered' isRequired
           startContent={<PhotoIcon className='h-5' />}
           className='rounded-xl '
           onChange={(e) => handleInputChange('file', e.target.files?.[0])} />
 
-        <Select label='Prediksi' placeholder='Pilih jenis prediksi' variant='bordered' labelPlacement='outside' value={formData.selectedOption} onChange={(e) => handleInputChange('selectedOption', e.target.value)}>
+        <Select label='Prediksi' placeholder='Pilih jenis prediksi' variant='bordered' isRequired labelPlacement='outside' value={formData.selectedOption} onChange={(e) => handleInputChange('selectedOption', e.target.value)}>
           <SelectItem key='disease'>Penyakit Tanaman</SelectItem>
           <SelectItem key='ndvi'>Indeks Vegetasi</SelectItem>
         </Select>
 
-        <Select label='Kode Polybag' placeholder='Pilih tanaman' variant='bordered' labelPlacement='outside' value={formData.kodePolybag} onChange={(e) => handleInputChange('kodePolybag', e.target.value)}>
+        <Select label='Kode Polybag' placeholder='Pilih tanaman' variant='bordered' isRequired labelPlacement='outside' value={formData.kodePolybag} onChange={(e) => handleInputChange('kodePolybag', e.target.value)}>
           <SelectItem key='B2-N2P1(3)'>B2-N2P1(3)</SelectItem>
           <SelectItem key='B8-N2P3(1)'>B8-N2P3(1)</SelectItem>
           <SelectItem key='B8-N2P2(1)'>B8-N2P2(1)</SelectItem>
         </Select>
 
-        <DatePicker label="Tanggal" variant='bordered' labelPlacement='outside' className='rounded-xl'
+        <DatePicker label="Tanggal" variant='bordered' isRequired labelPlacement='outside' className='rounded-xl'
           maxValue={today(getLocalTimeZone())}
           value={formData.tanggal} onChange={(date) => handleInputChange('tanggal', date)} />
         

@@ -38,7 +38,7 @@ export default async function Page({ params }) {
           <p className='font-semibold p-2'>Nutrisi</p>
           <p className='p-2'>:</p>
           <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Larutan Hara</p>
-          <p className='font-semibold p-2'>Pembentuk Tanah</p>
+          <p className='font-semibold p-2'>Pembenah Tanah</p>
           <p className='p-2'>:</p>
           <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Pupuk Kandang</p>
           <p className='font-semibold p-2'>Tingkat Kesehatan</p>

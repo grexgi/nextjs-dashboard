@@ -15,7 +15,7 @@ const StackedLineChart: React.FC<LineChartProps> = ({ cropCode }) => {
   const fetchData = useCallback(async () => {
     try {
       const foundSensor = findSensorByCropCode(cropCode)
-      const response = await fetch(`https://api.thingspeak.com/channels/${foundSensor?.channelID}/feeds.json?api_key=${foundSensor?.apiKey}&timezone=Asia/Jakarta&results=${(1440 / 5) * 3}`);
+      const response = await fetch(`https://api.thingspeak.com/channels/${foundSensor?.channelID}/feeds.json?api_key=${foundSensor?.apiKey}&timezone=Asia/Jakarta&results=${(1440 / 5) * 3}`); // maksimum 8000 entry atau 1 bulan (28 hari)
       const fetchedData = await response.json();
       setData(fetchedData.feeds); // Extract the feeds array
     } catch (error) {
@@ -45,14 +45,13 @@ const StackedLineChart: React.FC<LineChartProps> = ({ cropCode }) => {
       phosphor = data.map((item: any) => item.field7);
       potassium = data.map((item: any) => item.field8);
       dates = data.map((item: any) => DateFormatter(item.created_at));
-
     }
 
     const lineChartOption = {
       title: {
         left: 'center',
         top: 40,
-        text: 'NPK'
+        text: "NPK"
       },
       tooltip: {
         trigger: 'axis',
