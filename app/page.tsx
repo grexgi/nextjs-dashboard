@@ -15,9 +15,8 @@ export default function Page() {
           <p
             className={`${lusitana.className} text-lg text-gray-800 md:text-3xl md:leading-normal`}
           >
-            <strong>Welcome to Crop Health Monitoring System. </strong>A system
-            to monitor your crop from home, developed by Telkom University
-            student.
+            Selamat datang di dashboard yang memantau kebun cabai
+            <strong> Bale Tatanen Universitas Padjajaran</strong>
           </p>
           <Link
             href="/dashboard"

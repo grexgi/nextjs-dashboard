@@ -41,16 +41,16 @@ export function CropDailyCard({
       </div>
 
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
-        <GaugeChart title='NDVI' index={NDVI} minValue={-1} maxValue={1} minSafe={0.66} maxSafe={1} />
-        <GaugeChart title='EC' index={EC} minValue={0} maxValue={1500} minSafe={0.66} maxSafe={0.8} />
-        <GaugeChart title='Suhu' index={temperature} minValue={0} maxValue={40} minSafe={0.2} maxSafe={0.8} />
-        <GaugeChart title='Kelembapan' index={humidity} minValue={0} maxValue={100} minSafe={0.3} maxSafe={0.7} />
-        <GaugeChart title='pH' index={pH} minValue={0} maxValue={14} minSafe={0.4} maxSafe={0.7} />
-        <GaugeChart title='Tinggi' index={cropTall} minValue={0} maxValue={150} minSafe={0.4} maxSafe={1} />
-        <GaugeChart title='Daun' index={leafCount} minValue={0} maxValue={300} minSafe={0.4} maxSafe={1} />
-        <GaugeChart title='Nitrogen' index={n} minValue={0} maxValue={1000} minSafe={0.4} maxSafe={0.7} />
-        <GaugeChart title='Fosfor' index={p} minValue={0} maxValue={1000} minSafe={0.4} maxSafe={0.7} />
-        <GaugeChart title='Kalium' index={k} minValue={0} maxValue={1000} minSafe={0.4} maxSafe={0.7} />
+        {/* <GaugeChart title='NDVI' index={NDVI} minValue={-1} maxValue={1} minSafe={0.65} maxSafe={1} /> */}
+        <GaugeChart title='EC' index={EC} minValue={0} maxValue={1500} minSafe={109 / 1500} maxSafe={900 / 1500} />
+        <GaugeChart title='Suhu' index={temperature} minValue={0} maxValue={40} minSafe={19 / 40} maxSafe={34 / 40} />
+        <GaugeChart title='Kelembapan' index={humidity} minValue={0} maxValue={100} minSafe={0.41} maxSafe={0.8} />
+        <GaugeChart title='pH' index={pH} minValue={0} maxValue={14} minSafe={6.4 / 14} maxSafe={7.5 / 14} />
+        {/* <GaugeChart title='Tinggi' index={cropTall} minValue={0} maxValue={150} minSafe={0.4} maxSafe={1} /> */}
+        {/* <GaugeChart title='Daun' index={leafCount} minValue={0} maxValue={300} minSafe={0.4} maxSafe={1} /> */}
+        <GaugeChart title='Nitrogen' index={n} minValue={0} maxValue={1000} minSafe={100 / 1000} maxSafe={300 / 1000} />
+        <GaugeChart title='Fosfor' index={p} minValue={0} maxValue={1000} minSafe={300 / 1000} maxSafe={500 / 1000} />
+        <GaugeChart title='Kalium' index={k} minValue={0} maxValue={1000} minSafe={300 / 1000} maxSafe={500 / 1000} />
       </div>
 
       <Link

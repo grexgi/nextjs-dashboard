@@ -51,7 +51,7 @@ export default function Page() {
         setShowPrediction(true);
         setTimeout(() => {
           setShowPrediction(false);
-        }, 5000); // hide prediction after 5 seconds
+        }, 10000); // hide prediction after 5 seconds
       } else {
         setError(res.data.error);
         setShowError(true);
@@ -106,9 +106,11 @@ export default function Page() {
       }
 
     } catch (error) {
-      setError(error.message);
+      setError(e.message);
       setShowError(true);
-      console.error(error);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
     }
   }
 
@@ -135,8 +137,19 @@ export default function Page() {
 
         <Select label='Kode Polybag' placeholder='Pilih tanaman' variant='bordered' isRequired labelPlacement='outside' value={formData.kodePolybag} onChange={(e) => handleInputChange('kodePolybag', e.target.value)}>
           <SelectItem key='B2-N2P1(3)'>B2-N2P1(3)</SelectItem>
-          <SelectItem key='B8-N2P3(1)'>B8-N2P3(1)</SelectItem>
+          <SelectItem key='B2-N2P2(2)'>B2-N2P3(2)</SelectItem>
+          <SelectItem key='B8-N2P3(1)'>B2-N2P2(3)</SelectItem>
+          <SelectItem key='B3-N2P1(3)'>B3-N2P1(3)</SelectItem>
+          <SelectItem key='B3-N2P3(1)'>B3-N2P2(3)</SelectItem>
+          <SelectItem key='B3-N2P2(4)'>B3-N2P3(4)</SelectItem>
+          <SelectItem key='B4-N3P2(4)'>B4-N3P3(4)</SelectItem>
+          <SelectItem key='B4-N3P3(4)'>B4-N3P2(4)</SelectItem>
+          <SelectItem key='B6-N2P1(6)'>B6-N2P1(6)</SelectItem>
           <SelectItem key='B8-N2P2(1)'>B8-N2P2(1)</SelectItem>
+          <SelectItem key='B8-N2P3(1)'>B8-N2P3(1)</SelectItem>
+          <SelectItem key='B9-N3P3(3)'>B9-N3P3(3)</SelectItem>
+          <SelectItem key='B10-N2P3(5)'>B10-N2P3(5)</SelectItem>
+          <SelectItem key='B11-N3P1(2)'>B11-N3P1(2)</SelectItem>
         </Select>
 
         <DatePicker label="Tanggal" variant='bordered' isRequired labelPlacement='outside' className='rounded-xl'
