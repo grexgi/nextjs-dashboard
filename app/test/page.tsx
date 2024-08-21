@@ -10,8 +10,8 @@ export default async function Polybags() {
     // // .limit(288);
 
     const { data, error } = await supabase.from("polybag")
-        .select('id_polybag, ndvi_monitor!inner(label), disease_monitor!inner(label)')
-        .like('id_polybag', 'B2-N2P1(3)')
+        .select('id_polybag, nutrisi, pembenah_tanah, ndvi_monitor(label), disease_monitor(label)')
+        .like('id_polybag', 'B11-N3P1(2)')
     // .order('entry', { ascending: false })
     // .limit(288);
 
@@ -25,10 +25,10 @@ export default async function Polybags() {
         return <div>No data found</div>;
     }
 
-    console.log(data.length);
-    console.log(data[0].disease_monitor.length);
-    console.log(data[0].disease_monitor[data[0].disease_monitor.length - 1]);
+    // console.log(data.length);
+    // console.log(data[0].disease_monitor.length);
+    // console.log(data[0].disease_monitor[data[0].disease_monitor.length - 1]);
 
 
-    return <pre>{JSON.stringify(data[0].disease_monitor[data[0].disease_monitor.length - 1], null, 2)}</pre>;
+    return <pre>{JSON.stringify(data, null, 2)}</pre>;
 }

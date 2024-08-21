@@ -39,7 +39,8 @@
     "app/ui/dashboard/crop-daily-card.tsx",
     "app/dashboard/page.jsx",
     "app/dashboard/details/[cropCode]/page.tsx",
-    "app/dashboard/upload/page.jsx"
+    "app/dashboard/upload/page.jsx",
+    "app/ui/dashboard/quick-info.jsx"
   ],
   "exclude": [
     "node_modules"

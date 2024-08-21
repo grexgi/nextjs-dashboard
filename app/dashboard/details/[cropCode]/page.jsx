@@ -3,7 +3,7 @@ import EnvironmentInfo from '@/app/ui/dashboard/environment-info';
 import NanobubbleInfo from '@/app/ui/dashboard/nanobubble-info';
 import LineChart from '@/app/ui/dashboard/line-chart';
 import StackedLineChart from '@/app/ui/dashboard/stacked-line-chart';
-import GaugeChart from '@/app/ui/dashboard/gauge-chart';
+import QuickInfo from '@/app/ui/dashboard/quick-info';
 import Image from "next/image"
 
 export const metadata = {
@@ -34,20 +34,7 @@ export default async function Page({ params }) {
         </div>
 
         {/* Crop Info */}
-        <div className=' grid grid-cols-3 my-5 mx-3 gap-2'>
-          <p className='font-semibold p-2'>Nutrisi</p>
-          <p className='p-2'>:</p>
-          <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Larutan Hara</p>
-          <p className='font-semibold p-2'>Pembenah Tanah</p>
-          <p className='p-2'>:</p>
-          <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Pupuk Kandang</p>
-          <p className='font-semibold p-2'>Tingkat Kesehatan</p>
-          <p className='p-2'>:</p>
-          <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Sehat</p>
-          <p className='font-semibold p-2'>Penyakit</p>
-          <p className='p-2'>:</p>
-          <p className='border border-green-600 text-green-600 font-semibold max-w-fit p-2 rounded-full'>Tidak Ada</p>
-        </div>
+        <QuickInfo cropCode={params.cropCode}/>
 
         {/* Line-Chart */}
         <div className=' flex flex-col md:flex-row flex-wrap overflow-auto md:overflow-visible'>
