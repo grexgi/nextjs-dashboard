@@ -6,7 +6,6 @@ import GaugeChart from './gauge-chart';
 
 export function CropDailyCard({
   cropCode,
-  cropClass,
   NDVI,
   EC,
   temperature,
@@ -19,7 +18,6 @@ export function CropDailyCard({
   k,
 }: {
   cropCode: string;
-  cropClass: string;
   NDVI: number;
   EC: number;
   temperature: number;
@@ -32,15 +30,12 @@ export function CropDailyCard({
   k: number;
 }) {
   return (
-    <div className="mb-4 flex flex-grow h-min flex-col overflow-x-clip rounded-xl bg-green-50 p-3">
+    <div className="mb-4 flex flex-grow h-min md:ps-24 flex-col overflow-x-clip rounded-xl bg-green-50 p-3">
       <div className="flex flex-col pt-8 text-center">
         <h1 className="text-base font-bold md:text-xl">{cropCode}</h1>
-        <p className="text-sm font-medium text-green-700 md:text-lg">
-          {cropClass}
-        </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ">
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
         {/* <GaugeChart title='NDVI' index={NDVI} minValue={-1} maxValue={1} minSafe={0.65} maxSafe={1} /> */}
         <GaugeChart title='EC' index={EC} minValue={0} maxValue={1500} minSafe={109 / 1500} maxSafe={900 / 1500} />
         <GaugeChart title='Suhu' index={temperature} minValue={0} maxValue={40} minSafe={19 / 40} maxSafe={34 / 40} />
@@ -57,7 +52,7 @@ export function CropDailyCard({
         href={{
           pathname: 'dashboard/details/' + cropCode,
         }}
-        className="mt-6 me-5 md:me-20 self-end rounded-md border border-blue-700 bg-blue-700 px-3 py-1 text-sm font-semibold text-slate-50 hover:bg-transparent hover:text-blue-700 md:text-base"
+        className="mt-6 me-5 md:me-28 self-end rounded-md border border-blue-700 bg-blue-700 px-3 py-1 text-sm font-semibold text-slate-50 hover:bg-transparent hover:text-blue-700 md:text-base"
       >
         Detail
       </Link>
