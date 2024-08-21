@@ -25,10 +25,14 @@ export default function EnvironmentInfo() {
     <div className="flex flex-row flex-wrap gap-1 p-4">
       <h1 className="w-full text-lg font-bold md:text-xl">Lingkungan</h1>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        Suhu : {roundToDecimals(envData.field1)}°C
+        Suhu : <strong>
+        {roundToDecimals(envData.field1)}°C
+        </strong>
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        Kelembapan : {roundToDecimals(envData.field2)}%
+        Kelembapan : <strong>
+        {roundToDecimals(envData.field2)}%
+        </strong>
       </p>      
     </div>
   );

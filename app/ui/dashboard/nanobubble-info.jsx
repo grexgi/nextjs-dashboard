@@ -23,24 +23,36 @@ export default function NanobubbleInfo() {
 
   return (
     <div className="flex flex-row flex-wrap gap-1 p-4">
-      <h1 className="w-full text-lg font-bold md:text-xl">Nanobubble</h1>
+      <h1 className="w-full text-lg font-bold md:text-xl">Torn Nanobubble</h1>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        DO : {roundToDecimals(envData.field1)}
+        DO : <strong>
+        {roundToDecimals(envData.field1)}
+        </strong>
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        EC : {roundToDecimals(envData.field2)}
+        EC : <strong>
+        {roundToDecimals(envData.field2)}
+        </strong>
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        Res : {roundToDecimals(envData.field3)}
+        Res : <strong>
+        {roundToDecimals(envData.field3)}
+        </strong>
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        Suhu : {roundToDecimals(envData.field4)}°C
+        Suhu : <strong>
+        {roundToDecimals(envData.field4)}°C
+        </strong>
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        TDS : {roundToDecimals(envData.field5)}/ppm
+        TDS : <strong>
+        {roundToDecimals(envData.field5)}/ppm
+        </strong>
       </p>
       <p id="info" className="w-full text-xs font-normal md:text-lg">
-        Sal : {roundToDecimals(envData.field6)}/ppm
+        Sal : <strong>
+        {roundToDecimals(envData.field6)}/ppm
+        </strong>
       </p>
       
     </div>
