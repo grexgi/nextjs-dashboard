@@ -40,7 +40,8 @@
     "app/dashboard/page.jsx",
     "app/dashboard/details/[cropCode]/page.tsx",
     "app/dashboard/upload/page.jsx",
-    "app/ui/dashboard/quick-info.jsx"
+    "app/ui/dashboard/quick-info.jsx",
+    "utils/supabase.js"
   ],
   "exclude": [
     "node_modules"

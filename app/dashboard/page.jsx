@@ -1,105 +1,17 @@
-'use client';
+'use client'
 
 import React, { useState, useEffect } from 'react';
 import WeatherInfo from '@/app/ui/dashboard/weather-info';
 import { CropDailyCard } from '@/app/ui/dashboard/crop-daily-card';
 import EnvironmentInfo from '../ui/dashboard/environment-info';
 import NanobubbleInfo from '../ui/dashboard/nanobubble-info';
+import Sensor from '@/model/sensor'
 
-const sensors = [
-  {
-    polybag: 'B2-N2P1(3)',
-    channelID: '2573088',
-    apiKey: '2EUPVXHC5QO8ZPOY',
-    sensor: 'Auto 1',
-  },
-  {
-    polybag: 'B2-N2P3(2)',
-    channelID: '2573089',
-    apiKey: 'CYTZ5PANCCUVVCMT',
-    sensor: 'Auto 2',
-  },
-  {
-    polybag: 'B2-N2P2(3)',
-    channelID: '2573090',
-    apiKey: 'WJF8BQGGMR6JA9AE',
-    sensor: 'Auto 3',
-  },
-  {
-    polybag: 'B3-N2P1(3)',
-    channelID: '2573092',
-    apiKey: 'AOSOFGA4WVDQCL04',
-    sensor: 'Auto 4',
-  },
-  {
-    polybag: 'B3-N2P3(1)',
-    channelID: '2573093',
-    apiKey: 'BO3FWSZVUSMHFLH1',
-    sensor: 'Auto 5',
-  },
-  {
-    polybag: 'B3-N2P2(4)',
-    channelID: '2573094',
-    apiKey: 'LBX668AWWPMJAM2J',
-    sensor: 'Auto 6',
-  },
-  // { polybag:'Auto 7', channelID: '2573096', apiKey: 'SVMLCJ53ABB2K0IP'}, // belum ada entry
-  // sensor Auto tidak ada tds field5-7=npk
-  // sensor Time field5=tds && field6-8=npk
-  {
-    polybag: 'B4-N3P2(4)',
-    channelID: '2580652',
-    apiKey: 'VCD4PPD4ZVAMOAJG',
-    sensor: 'Time 1',
-  },
-  {
-    polybag: 'B4-N3P3(4)',
-    channelID: '2580664',
-    apiKey: 'TTX87BGPJK2KTFCT',
-    sensor: 'Time 7',
-  },
-  {
-    polybag: 'B6-N2P1(6)',
-    channelID: '2580656',
-    apiKey: 'YPPQMF5T2F1HH6B0',
-    sensor: 'Time 4',
-  },
-  {
-    polybag: 'B8-N2P2(1)',
-    channelID: '2580657',
-    apiKey: 'U0D3LFQTEOND6L9O',
-    sensor: 'Time 5',
-  },
-  {
-    polybag: 'B8-N2P3(1)',
-    channelID: '2580665',
-    apiKey: '8HWN2H29SBPJ0JAD',
-    sensor: 'Time 8',
-  },
-  {
-    polybag: 'B9-N3P3(3)',
-    channelID: '2580653',
-    apiKey: 'WYPUBPC0DLJWPNKC',
-    sensor: 'Time 2',
-  },
-  {
-    polybag: 'B10-N2P3(5)',
-    channelID: '2580659',
-    apiKey: 'IUM51GU125UVW9B4',
-    sensor: 'Time 6',
-  },
-  {
-    polybag: 'B11-N3P1(2)',
-    channelID: '2580655',
-    apiKey: 'LQEI4ENFE68DWD75',
-    sensor: 'Time 3',
-  },
-  // { polybag:'Ardi 1', channelID: '2495370', apiKey: 'SH0R26GMJVP5Q3IB'},
-];
+const sensor = new Sensor();
 
-async function getData(crop) {
-  const CHANNEL_ID = crop.channelID;
-  const API_KEY = crop.apiKey;
+async function getData(sensor) {
+  const CHANNEL_ID = sensor.channel_id;
+  const API_KEY = sensor.read_key;
   const TIMEZONE = 'Asia/Jakarta';
   const res = await fetch(
     `https://api.thingspeak.com/channels/${CHANNEL_ID}/feeds/last.json?api_key=${API_KEY}&timezone=${TIMEZONE}`,
@@ -119,12 +31,15 @@ function roundToDecimals(value, decimals = 2) {
 
 export default function Page() {
   const [sensorData, setSensorData] = useState([]);
+  const [soilSensors, setSoilSensors] = useState([]); // Add a new state variable
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await Promise.all(sensors.map(getData));
+        const soilSensorsData = await sensor.getAllSoilSensor();
+        setSoilSensors(soilSensorsData); // Store the soilSensors data in the state variable
+        const data = await Promise.all(soilSensorsData.map(getData));
         setSensorData(data);
       } catch (error) {
         setError(error.message);
@@ -147,8 +62,7 @@ export default function Page() {
           return (
             <CropDailyCard
               key={index}
-              cropCode={sensors[index].polybag}
-              // cropCode={cropData.entry_id}
+              cropCode={soilSensors[index].polybag} // Use the polybag from soilSensors
               NDVI={0}
               EC={cropData.field3}
               temperature={roundToDecimals(cropData.field2)}
