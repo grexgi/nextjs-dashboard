@@ -16,7 +16,7 @@ const LineChart: React.FC<LineChartProps> = ({ title, cropCode }) => {
   const fetchData = useCallback(async () => {
     try {
       const foundSensor = findSensorByCropCode(cropCode)
-      const response = await fetch(`https://api.thingspeak.com/channels/${foundSensor?.channelID}/feeds.json?api_key=${foundSensor?.apiKey}&timezone=Asia/Jakarta&results=${(1440 / 5) * 3}`); // maksimum 8000 entry atau 1 bulan (28 hari)
+      const response = await fetch(`https://api.thingspeak.com/channels/${foundSensor?.channelID}/feeds.json?api_key=${foundSensor?.apiKey}&timezone=Asia/Jakarta&results=${(1440 / 5) * 7}`); // maksimum 8000 entry atau 1 bulan (28 hari)
       const fetchedData = await response.json();
       setData(fetchedData.feeds);
     } catch (error) {
