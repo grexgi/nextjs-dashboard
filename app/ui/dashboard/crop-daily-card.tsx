@@ -37,7 +37,7 @@ export function CropDailyCard({
 
       <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
         {/* <GaugeChart title='NDVI' index={NDVI} minValue={-1} maxValue={1} minSafe={0.65} maxSafe={1} /> */}
-        <GaugeChart title='EC' index={EC} minValue={0} maxValue={1500} minSafe={109 / 1500} maxSafe={900 / 1500} />
+        <GaugeChart title='EC' index={EC} minValue={0} maxValue={3000} minSafe={999 / 3000} maxSafe={1800 / 3000} />
         <GaugeChart title='Suhu' index={temperature} minValue={0} maxValue={40} minSafe={19 / 40} maxSafe={34 / 40} />
         <GaugeChart title='Kelembapan' index={humidity} minValue={0} maxValue={100} minSafe={0.41} maxSafe={0.8} />
         <GaugeChart title='pH' index={pH} minValue={0} maxValue={14} minSafe={6.4 / 14} maxSafe={7.5 / 14} />
