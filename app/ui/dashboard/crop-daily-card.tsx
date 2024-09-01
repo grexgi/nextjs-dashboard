@@ -43,9 +43,9 @@ export function CropDailyCard({
         <GaugeChart title='pH' index={pH} minValue={0} maxValue={14} minSafe={6.4 / 14} maxSafe={7.5 / 14} />
         {/* <GaugeChart title='Tinggi' index={cropTall} minValue={0} maxValue={150} minSafe={0.4} maxSafe={1} /> */}
         {/* <GaugeChart title='Daun' index={leafCount} minValue={0} maxValue={300} minSafe={0.4} maxSafe={1} /> */}
-        <GaugeChart title='Nitrogen' index={n} minValue={0} maxValue={1000} minSafe={150 / 1000} maxSafe={1000 / 1000} />
-        <GaugeChart title='Fosfor' index={p} minValue={0} maxValue={1000} minSafe={150 / 1000} maxSafe={1000 / 1000} />
-        <GaugeChart title='Kalium' index={k} minValue={0} maxValue={1000} minSafe={150 / 1000} maxSafe={1000 / 1000} />
+        <GaugeChart title='Nitrogen' index={n} minValue={0} maxValue={2000} minSafe={150 / 1000} maxSafe={1000 / 1000} />
+        <GaugeChart title='Fosfor' index={p} minValue={0} maxValue={2000} minSafe={150 / 1000} maxSafe={1000 / 1000} />
+        <GaugeChart title='Kalium' index={k} minValue={0} maxValue={2000} minSafe={150 / 1000} maxSafe={1000 / 1000} />
       </div>
 
       <Link
