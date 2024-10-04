@@ -26,6 +26,13 @@ const StackedLineChart: React.FC<LineChartProps> = ({ cropCode }) => {
 
   useEffect(() => {
     fetchData(); // Fetch data on component mount
+
+    const intervalId = setInterval(fetchData, 1 * 60 * 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+
   }, [fetchData]); // Only run when fetchData changes
 
   useEffect(() => {
